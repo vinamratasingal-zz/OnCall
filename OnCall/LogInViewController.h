@@ -12,5 +12,6 @@
 
 - (IBAction)unwindToLogIn:(UIStoryboardSegue *)segue;
 - (IBAction)submitUserCredentials:(id)sender;
+- (IBAction)signup:(id)sender;
 
 @end

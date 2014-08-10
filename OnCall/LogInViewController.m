@@ -32,8 +32,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _passwordField.secureTextEntry = YES;
-    self.scrollView.contentSize = CGSizeMake(0, 701);
+    //self.scrollView.contentSize = CGSizeMake(0, 701);
+    
+    UITapGestureRecognizer* tapBackground = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
+    [tapBackground setNumberOfTapsRequired:1];
+    [self.view addGestureRecognizer:tapBackground];
 }
+
+-(void) dismissKeyboard:(id)sender
+{
+    [self.view endEditing:YES];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -62,6 +72,11 @@
             [invalidLogin show];
         }
     }];
+}
+
+- (IBAction)signup:(id)sender
+{
+    
 }
 
 @end
