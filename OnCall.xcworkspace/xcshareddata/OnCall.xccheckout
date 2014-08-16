@@ -10,6 +10,8 @@
 	<string>OnCall</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>824530FD-9372-43C7-924D-69B1D9195896</key>
+		<string>ssh://github.com/phaibin/Kal.git</string>
 		<key>D1214298-E644-46B5-84E7-FDE9333C938E</key>
 		<string>ssh://github.com/vinamratasingal/OnCall.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>OnCall.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>824530FD-9372-43C7-924D-69B1D9195896</key>
+		<string>../../Kal</string>
 		<key>D1214298-E644-46B5-84E7-FDE9333C938E</key>
 		<string>..</string>
 	</dict>
@@ -28,6 +32,14 @@
 	<string>D1214298-E644-46B5-84E7-FDE9333C938E</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>824530FD-9372-43C7-924D-69B1D9195896</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Kal</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
