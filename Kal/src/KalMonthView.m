@@ -105,9 +105,17 @@ extern const CGSize kTileSize;
 
 - (void)markTilesForDates:(NSArray *)dates
 {
-    for (KalTileView *tile in self.subviews)
+    if([dates count] > 0)
     {
-        tile.marked = [dates containsObject:tile.date];
+    NSLog(@"dates: %s", [[tileAccessibilityFormatter stringFromDate:dates[0]] UTF8String]);
+    }
+    for (int i = 0; i < [self.subviews count]; i++)
+    {
+        KalTileView* tile = (KalTileView*)self.subviews[i];
+        tile = (KalTileView*)tile;
+        NSLog(@"checking: %s" ,[[tileAccessibilityFormatter stringFromDate:tile.date] UTF8String]);
+        if([dates containsObject:tile.date])
+            [tile setType:KalTileTypeMarked];
         NSString *dayString = [tileAccessibilityFormatter stringFromDate:tile.date];
         if (dayString) {
             NSMutableString *helperText = [[NSMutableString alloc] initWithCapacity:128];
@@ -117,6 +125,7 @@ extern const CGSize kTileSize;
             if (tile.marked)
                 [helperText appendFormat:@". %@", NSLocalizedString(@"Marked", @"Accessibility text for a day tile which is marked with a small dot")];
             [tile setAccessibilityLabel:helperText];
+            
         }
     }
 }

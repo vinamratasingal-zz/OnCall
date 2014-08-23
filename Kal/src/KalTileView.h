@@ -27,6 +27,7 @@ typedef enum {
 @interface KalTileView : UIView
 {
     CGPoint origin;
+    BOOL marked;
 }
 
 @property (nonatomic, strong) NSDate *date;

@@ -58,14 +58,16 @@ static BOOL IsDateBetweenInclusive(NSDate *date, NSDate *begin, NSDate *end)
     cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
   }
 
-  EKEvent *event = [self eventAtIndexPath:indexPath];
-  cell.textLabel.text = event.title;
+ // EKEvent *event = [self eventAtIndexPath:indexPath];
+ // cell.textLabel.text = event.title;
+cell.textLabel.text = @"hi";
   return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  return [items count];
+  //return [items count];
+    return 3;
 }
 
 #pragma mark KalDataSource protocol conformance

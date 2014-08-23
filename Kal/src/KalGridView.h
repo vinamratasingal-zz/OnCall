@@ -23,7 +23,7 @@ typedef enum {
  *  (it is managed by KalView).
  *
  */
-@interface KalGridView : UIView
+@interface KalGridView : UIView <UIGestureRecognizerDelegate>
 {
   id<KalViewDelegate> delegate;  // Assigned.
   KalLogic *logic;

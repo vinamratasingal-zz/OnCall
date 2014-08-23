@@ -125,9 +125,26 @@ static NSString *kSlideAnimationId = @"KalSwitchMonths";
         
         [self jumpToSelectedMonth];
     }
+    
+    UILongPressGestureRecognizer *gesture1 = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressFired:)];
+    [gesture1 setDelegate:self];
+    [gesture1 setMinimumPressDuration:1];
+    [self addGestureRecognizer:gesture1];
+    
     return self;
 }
 
+-(void)longPressFired:(UIGestureRecognizer *)longPress
+{
+    if(longPress.state == UIGestureRecognizerStateBegan)
+    {
+        
+        if ([(id)delegate respondsToSelector:@selector(didLongPressDate:)]) {
+            [delegate didLongPressDate:self.beginDate];
+        }
+
+    }
+}
 - (void)sizeToFit
 {
     self.height = frontMonthView.height;
@@ -136,6 +153,8 @@ static NSString *kSlideAnimationId = @"KalSwitchMonths";
 #pragma mark -
 #pragma mark Touches
 
+
+//sets the begin date, in our case
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
@@ -163,6 +182,7 @@ static NSString *kSlideAnimationId = @"KalSwitchMonths";
     }
 }
 
+//does nothing in our case
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
     if (self.selectionMode == KalSelectionModeSingle)
@@ -194,6 +214,7 @@ static NSString *kSlideAnimationId = @"KalSwitchMonths";
     }
 }
 
+//
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];

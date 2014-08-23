@@ -142,6 +142,15 @@ NSString *const KalDataSourceChangedNotification = @"KalDataSourceChangedNotific
     [tableView flashScrollIndicators];
 }
 
+-(void) didLongPressDate:(NSDate *)date
+{
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"ShiftPicker"];
+    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:vc animated:YES completion:NULL];
+
+}
+
 - (void)didSelectBeginDate:(NSDate *)beginDate endDate:(NSDate *)endDate
 {
     _beginDate = beginDate;
@@ -216,6 +225,7 @@ NSString *const KalDataSourceChangedNotification = @"KalDataSourceChangedNotific
     if (!self.title)
         self.title = @"Calendar";
     KalView *kalView = [[KalView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame] delegate:self logic:logic];
+    
     kalView.gridView.selectionMode = self.selectionMode;
     self.view = kalView;
     tableView = kalView.tableView;
@@ -235,13 +245,13 @@ NSString *const KalDataSourceChangedNotification = @"KalDataSourceChangedNotific
     [super viewWillAppear:animated];
     [tableView reloadData];
     if ([self.navigationController.navigationBar respondsToSelector:@selector(setBarTintColor:)]) {
-        self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
-        self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
+        //self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
+        //self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
     } else {
-        self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+        //self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     }
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : kLightGrayColor, NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:20]};
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+    //self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : kLightGrayColor, NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue" size:20]};
+    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated

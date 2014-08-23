@@ -8,17 +8,52 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "Kal.h"
+#import "MyKalDataSource.h"
+#import "MainViewController.h"
+#import "NSDate+Convenience.h"
 
- 
+@interface AppDelegate ()
+
+@property (nonatomic, retain) id<KalDataSource> source;
+@end
 
 @implementation AppDelegate
-
+@synthesize source;
+@synthesize tabBarController;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [Parse setApplicationId:@"3XFtjNttrOYIq1C8kPOB7N5E207BAoo450tr01gU" clientKey:@"c5S83cGhGgCs23dNDREePY6YbuE7UKKv6y1TKfAT"];
+    //[Parse setApplicationId:@"3XFtjNttrOYIq1C8kPOB7N5E207BAoo450tr01gU" clientKey:@"c5S83cGhGgCs23dNDREePY6YbuE7UKKv6y1TKfAT"];
+    
+    [Parse setApplicationId:@"8kVjXhqaOEAywzk6lwAJJZQpqPCKaMVglcncdIK0" clientKey:@"3jpGMZIAlOVoiEp8DflogqIRZ87pCAlHYlqOd4Vk"];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    self.tabBarController = [[UITabBarController alloc] init];
+    
+    MainViewController * mainView = [[MainViewController alloc ] initWithNibName:@"MainViewController" bundle:nil];
+    
+    source = [[MyKalDataSource alloc] init];
+    KalViewController *calendar = [[KalViewController alloc] initWithSelectionMode:KalSelectionModeSingle];
+    calendar.selectedDate = [NSDate dateStartOfDay:[[NSDate date] offsetDay:0]];
+    calendar.dataSource = source;
+    
+    [calendar showAndSelectDate:[NSDate date]];
+    
+    UINavigationController* navController = [[UINavigationController alloc]
+                                             initWithRootViewController:calendar];
+    
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects: mainView, mainView, navController, nil];
+    
+    self.window.rootViewController = self.tabBarController;
+    tabBarController.delegate = self;
+    
+    [self.window makeKeyAndVisible];
     return YES;
 }
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -46,5 +81,21 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+#pragma mark UITabBarControllerDelegate Methods 
+
+- (BOOL)tabBarController:(UITabBarController *)tBarController shouldSelectViewController:(UIViewController *)viewController {
+    
+    NSUInteger tabIndex = [tBarController.viewControllers indexOfObject:viewController];
+    
+    if (viewController == [tBarController.viewControllers objectAtIndex:tabIndex] ) {
+        return YES;
+    }
+    
+    return NO;
+    
+}
+
+
 
 @end

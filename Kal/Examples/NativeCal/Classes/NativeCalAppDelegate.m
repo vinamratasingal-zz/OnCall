@@ -24,7 +24,7 @@
      * instead of -[KalViewController init].
      */
    
-//#define Single
+#define Single
 #ifdef Single
     kal = [[KalViewController alloc] initWithSelectionMode:KalSelectionModeSingle];
     kal.selectedDate = [NSDate dateStartOfDay:[[NSDate date] offsetDay:1]];
@@ -45,7 +45,7 @@
     dataSource = [[EventKitDataSource alloc] init];
     kal.dataSource = dataSource;
     kal.minAvailableDate = [NSDate dateStartOfDay:[[NSDate date] offsetDay:-5]];
-    kal.maxAVailableDate = [kal.minAvailableDate offsetDay:30];
+    kal.maxAVailableDate = [kal.minAvailableDate offsetDay:300];
     
     // Setup the navigation stack and display it.
     navController = [[UINavigationController alloc] initWithRootViewController:kal];
