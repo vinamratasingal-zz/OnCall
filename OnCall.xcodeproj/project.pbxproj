@@ -531,7 +531,7 @@
 					"\"${PODS_ROOT}/Headers/Facebook-iOS-SDK/FacebookSDK\"",
 					"\"${PODS_ROOT}/Headers/LayerKit\"",
 					"\"${PODS_ROOT}/Headers/Parse-iOS-SDK\"",
-					"/Users/mfang/OnCall/Kal/**",
+					"\"${SRCROOT}/Kal/**",
 				);
 				INFOPLIST_FILE = "OnCall/OnCall-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -555,7 +555,7 @@
 					"\"${PODS_ROOT}/Headers/Facebook-iOS-SDK/FacebookSDK\"",
 					"\"${PODS_ROOT}/Headers/LayerKit\"",
 					"\"${PODS_ROOT}/Headers/Parse-iOS-SDK\"",
-					"/Users/mfang/OnCall/Kal/**",
+					"\"${SRCROOT}/Kal/**",
 				);
 				INFOPLIST_FILE = "OnCall/OnCall-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";

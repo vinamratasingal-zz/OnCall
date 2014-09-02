@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FD729FF3288641C8B773A74F"
+               BlueprintIdentifier = "E70B02F742E34CEBB61B99B0"
                BuildableName = "libPods-OnCall-LayerKit.a"
                BlueprintName = "Pods-OnCall-LayerKit"
                ReferencedContainer = "container:Pods.xcodeproj">

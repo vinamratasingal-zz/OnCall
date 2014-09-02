@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "711470D09D1D449B9C747DC1"
+               BlueprintIdentifier = "F0B2DCAE19384117B1791AEC"
                BuildableName = "libPods-OnCall.a"
                BlueprintName = "Pods-OnCall"
                ReferencedContainer = "container:Pods.xcodeproj">
