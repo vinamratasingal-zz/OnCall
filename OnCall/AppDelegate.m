@@ -35,11 +35,11 @@
     MainViewController * mainView = [[MainViewController alloc ] initWithNibName:@"MainViewController" bundle:nil];
     
     source = [[MyKalDataSource alloc] init];
-    KalViewController *calendar = [[KalViewController alloc] initWithSelectionMode:KalSelectionModeSingle];
-    calendar.selectedDate = [NSDate dateStartOfDay:[[NSDate date] offsetDay:0]];
-    calendar.dataSource = source;
+    KalViewController *calendar = [[KalViewController alloc] init];
+    //calendar.selectedDate = [NSDate dateStartOfDay:[[NSDate date] offsetDay:0]];
+    //calendar.dataSource = source;
     
-    [calendar showAndSelectDate:[NSDate date]];
+    [calendar showAndSelectToday];
     
     UINavigationController* navController = [[UINavigationController alloc]
                                              initWithRootViewController:calendar];

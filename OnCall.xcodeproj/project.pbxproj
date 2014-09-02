@@ -30,6 +30,7 @@
 		5AB3F0891996B244009DBABE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AB3F0711996B244009DBABE /* UIKit.framework */; };
 		5AB3F0911996B244009DBABE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AB3F08F1996B244009DBABE /* InfoPlist.strings */; };
 		5AB3F0931996B244009DBABE /* OnCallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB3F0921996B244009DBABE /* OnCallTests.m */; };
+		8D254201270E4DB192006CB5 /* libPods-OnCall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C69F23810A645298FB8AB1E /* libPods-OnCall.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C69F23810A645298FB8AB1E /* libPods-OnCall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OnCall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ACE9F3D19A2A6E6003B6F59 /* MyKalDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyKalDataSource.h; sourceTree = "<group>"; };
 		4ACE9F3E19A2A6E6003B6F59 /* MyKalDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyKalDataSource.m; sourceTree = "<group>"; };
 		4ACE9FA819A47842003B6F59 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				5AB3F0701996B244009DBABE /* CoreGraphics.framework in Frameworks */,
 				5AB3F0721996B244009DBABE /* UIKit.framework in Frameworks */,
 				5AB3F06E1996B244009DBABE /* Foundation.framework in Frameworks */,
+				8D254201270E4DB192006CB5 /* libPods-OnCall.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +133,7 @@
 				5AB3F06F1996B244009DBABE /* CoreGraphics.framework */,
 				5AB3F0711996B244009DBABE /* UIKit.framework */,
 				5AB3F0861996B244009DBABE /* XCTest.framework */,
+				2C69F23810A645298FB8AB1E /* libPods-OnCall.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -476,16 +480,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OnCall/OnCall-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"${PODS_ROOT}/Headers\"",
-					"\"${PODS_ROOT}/Headers/Bolts\"",
-					"\"${PODS_ROOT}/Headers/Facebook-iOS-SDK\"",
-					"\"${PODS_ROOT}/Headers/Facebook-iOS-SDK/FacebookSDK\"",
-					"\"${PODS_ROOT}/Headers/LayerKit\"",
-					"\"${PODS_ROOT}/Headers/Parse-iOS-SDK\"",
-					"/Users/mfang/OnCall/Kal/**",
-				);
+				HEADER_SEARCH_PATHS = "";
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				INFOPLIST_FILE = "OnCall/OnCall-Info.plist";
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -500,16 +498,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OnCall/OnCall-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"${PODS_ROOT}/Headers\"",
-					"\"${PODS_ROOT}/Headers/Bolts\"",
-					"\"${PODS_ROOT}/Headers/Facebook-iOS-SDK\"",
-					"\"${PODS_ROOT}/Headers/Facebook-iOS-SDK/FacebookSDK\"",
-					"\"${PODS_ROOT}/Headers/LayerKit\"",
-					"\"${PODS_ROOT}/Headers/Parse-iOS-SDK\"",
-					"/Users/mfang/OnCall/Kal/**",
-				);
+				HEADER_SEARCH_PATHS = "";
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				INFOPLIST_FILE = "OnCall/OnCall-Info.plist";
+				LIBRARY_SEARCH_PATHS = "";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

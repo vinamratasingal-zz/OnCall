@@ -39,7 +39,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _passwordField.secureTextEntry = YES;
-    //self.scrollView.contentSize = CGSizeMake(0, 701);
+    self.scrollView.contentSize = CGSizeMake(0, 701);
     
     UITapGestureRecognizer* tapBackground = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
     [tapBackground setNumberOfTapsRequired:1];

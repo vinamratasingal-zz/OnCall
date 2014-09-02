@@ -8,6 +8,7 @@ PODS:
     - Facebook-iOS-SDK (~> 3.7)
 
 DEPENDENCIES:
+  - Facebook-iOS-SDK (~> 3.17)
   - Kal (= 1.0rc1)
   - LayerKit
   - Parse-iOS-SDK
