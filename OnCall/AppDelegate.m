@@ -8,10 +8,10 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
-#import "Kal.h"
+#import <Kal/Kal.h>
+#import "NSDate+Convenience.h"
 #import "MyKalDataSource.h"
 #import "MainViewController.h"
-#import "NSDate+Convenience.h"
 
 @interface AppDelegate ()
 

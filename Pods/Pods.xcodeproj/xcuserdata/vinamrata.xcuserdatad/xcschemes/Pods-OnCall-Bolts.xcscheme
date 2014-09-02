@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5408BBBEC8C3447E99FE1A84"
+               BlueprintIdentifier = "DDABF5C6434D4E2696A8CBF0"
                BuildableName = "libPods-OnCall-Bolts.a"
                BlueprintName = "Pods-OnCall-Bolts"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -9,8 +9,7 @@
 #import "LogInViewController.h"
 
 #import <Parse/Parse.h>
-#import "Kal.h"
-#import "NSDate+Convenience.h"
+#import <Kal/Kal.h>
 #import "MyKalDataSource.h"
 
 

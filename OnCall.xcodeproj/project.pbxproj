@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A5E447F199FB42A001E667B /* libKal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5E447C199FB32B001E667B /* libKal.a */; };
-		4A5E4481199FB453001E667B /* Kal.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4A5E4480199FB453001E667B /* Kal.bundle */; };
 		4ACE9F3F19A2A6E6003B6F59 /* MyKalDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACE9F3E19A2A6E6003B6F59 /* MyKalDataSource.m */; };
 		4ACE9FAB19A47842003B6F59 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACE9FA919A47842003B6F59 /* MainViewController.m */; };
 		4ACE9FAC19A47842003B6F59 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ACE9FAA19A47842003B6F59 /* MainViewController.xib */; };
@@ -19,6 +17,7 @@
 		5A2E91EF1996C1590076CA78 /* LogInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A2E91ED1996C1590076CA78 /* LogInViewController.xib */; };
 		5A2E91F31996C1F70076CA78 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E91F11996C1F70076CA78 /* SignUpViewController.m */; };
 		5A2E91F41996C1F70076CA78 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A2E91F21996C1F70076CA78 /* SignUpViewController.xib */; };
+		5A4A040019B6341D00D24257 /* NSDate+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A03FF19B6341D00D24257 /* NSDate+Convenience.m */; };
 		5AB3F06E1996B244009DBABE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AB3F06D1996B244009DBABE /* Foundation.framework */; };
 		5AB3F0701996B244009DBABE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AB3F06F1996B244009DBABE /* CoreGraphics.framework */; };
 		5AB3F0721996B244009DBABE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AB3F0711996B244009DBABE /* UIKit.framework */; };
@@ -31,24 +30,9 @@
 		5AB3F0891996B244009DBABE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AB3F0711996B244009DBABE /* UIKit.framework */; };
 		5AB3F0911996B244009DBABE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AB3F08F1996B244009DBABE /* InfoPlist.strings */; };
 		5AB3F0931996B244009DBABE /* OnCallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB3F0921996B244009DBABE /* OnCallTests.m */; };
-		7F3BAC364D114E54BAE60603 /* libPods-OnCall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB91D5152FB7493C92970C61 /* libPods-OnCall.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4A5E447B199FB32B001E667B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4A5E4477199FB32A001E667B /* Kal.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D;
-			remoteInfo = Kal;
-		};
-		4A5E447D199FB417001E667B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4A5E4477199FB32A001E667B /* Kal.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
-			remoteInfo = Kal;
-		};
 		5AB3F08A1996B244009DBABE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5AB3F0621996B244009DBABE /* Project object */;
@@ -59,8 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4A5E4477199FB32A001E667B /* Kal.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Kal.xcodeproj; path = Kal/src/Kal.xcodeproj; sourceTree = "<group>"; };
-		4A5E4480199FB453001E667B /* Kal.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Kal.bundle; path = Kal/src/Kal.bundle; sourceTree = "<group>"; };
 		4ACE9F3D19A2A6E6003B6F59 /* MyKalDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyKalDataSource.h; sourceTree = "<group>"; };
 		4ACE9F3E19A2A6E6003B6F59 /* MyKalDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyKalDataSource.m; sourceTree = "<group>"; };
 		4ACE9FA819A47842003B6F59 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -76,6 +58,8 @@
 		5A2E91F01996C1F70076CA78 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		5A2E91F11996C1F70076CA78 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		5A2E91F21996C1F70076CA78 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		5A4A03FE19B6341D00D24257 /* NSDate+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Convenience.h"; sourceTree = "<group>"; };
+		5A4A03FF19B6341D00D24257 /* NSDate+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Convenience.m"; sourceTree = "<group>"; };
 		5AB3F06A1996B244009DBABE /* OnCall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnCall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AB3F06D1996B244009DBABE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5AB3F06F1996B244009DBABE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -92,7 +76,6 @@
 		5AB3F08E1996B244009DBABE /* OnCallTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OnCallTests-Info.plist"; sourceTree = "<group>"; };
 		5AB3F0901996B244009DBABE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5AB3F0921996B244009DBABE /* OnCallTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnCallTests.m; sourceTree = "<group>"; };
-		DB91D5152FB7493C92970C61 /* libPods-OnCall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OnCall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F82AFE850FCE4B15ADEB8021 /* Pods-OnCall.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnCall.xcconfig"; path = "Pods/Pods-OnCall.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,11 +84,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A5E447F199FB42A001E667B /* libKal.a in Frameworks */,
 				5AB3F0701996B244009DBABE /* CoreGraphics.framework in Frameworks */,
 				5AB3F0721996B244009DBABE /* UIKit.framework in Frameworks */,
 				5AB3F06E1996B244009DBABE /* Foundation.framework in Frameworks */,
-				7F3BAC364D114E54BAE60603 /* libPods-OnCall.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,19 +103,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4A5E4478199FB32A001E667B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4A5E447C199FB32B001E667B /* libKal.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		5AB3F0611996B244009DBABE = {
 			isa = PBXGroup;
 			children = (
-				4A5E4480199FB453001E667B /* Kal.bundle */,
-				4A5E4477199FB32A001E667B /* Kal.xcodeproj */,
 				5AB3F0731996B244009DBABE /* OnCall */,
 				5AB3F08C1996B244009DBABE /* OnCallTests */,
 				5AB3F06C1996B244009DBABE /* Frameworks */,
@@ -159,7 +130,6 @@
 				5AB3F06F1996B244009DBABE /* CoreGraphics.framework */,
 				5AB3F0711996B244009DBABE /* UIKit.framework */,
 				5AB3F0861996B244009DBABE /* XCTest.framework */,
-				DB91D5152FB7493C92970C61 /* libPods-OnCall.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -167,6 +137,8 @@
 		5AB3F0731996B244009DBABE /* OnCall */ = {
 			isa = PBXGroup;
 			children = (
+				5A4A03FE19B6341D00D24257 /* NSDate+Convenience.h */,
+				5A4A03FF19B6341D00D24257 /* NSDate+Convenience.m */,
 				5AB3F07C1996B244009DBABE /* AppDelegate.h */,
 				5AB3F07D1996B244009DBABE /* AppDelegate.m */,
 				5A2E91E91996BAE60076CA78 /* Storyboard.storyboard */,
@@ -235,7 +207,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				4A5E447E199FB417001E667B /* PBXTargetDependency */,
 			);
 			name = OnCall;
 			productName = OnCall;
@@ -280,16 +251,12 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
+				"zh-Hans",
 			);
 			mainGroup = 5AB3F0611996B244009DBABE;
 			productRefGroup = 5AB3F06B1996B244009DBABE /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 4A5E4478199FB32A001E667B /* Products */;
-					ProjectRef = 4A5E4477199FB32A001E667B /* Kal.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				5AB3F0691996B244009DBABE /* OnCall */,
@@ -298,22 +265,11 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		4A5E447C199FB32B001E667B /* libKal.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libKal.a;
-			remoteRef = 4A5E447B199FB32B001E667B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		5AB3F0681996B244009DBABE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A5E4481199FB453001E667B /* Kal.bundle in Resources */,
 				4ACE9FB519A5AB1E003B6F59 /* ShiftPickerViewController.xib in Resources */,
 				5A2E91F41996C1F70076CA78 /* SignUpViewController.xib in Resources */,
 				4ACE9FAC19A47842003B6F59 /* MainViewController.xib in Resources */,
@@ -378,6 +334,7 @@
 				4ACE9F3F19A2A6E6003B6F59 /* MyKalDataSource.m in Sources */,
 				5A2E91F31996C1F70076CA78 /* SignUpViewController.m in Sources */,
 				4ACE9FAB19A47842003B6F59 /* MainViewController.m in Sources */,
+				5A4A040019B6341D00D24257 /* NSDate+Convenience.m in Sources */,
 				5A2E91EE1996C1590076CA78 /* LogInViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,11 +350,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4A5E447E199FB417001E667B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Kal;
-			targetProxy = 4A5E447D199FB417001E667B /* PBXContainerItemProxy */;
-		};
 		5AB3F08B1996B244009DBABE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5AB3F0691996B244009DBABE /* OnCall */;

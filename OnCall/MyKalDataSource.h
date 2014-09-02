@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Kal.h"
+#import <Kal/Kal.h>
 
 @interface MyKalDataSource : NSObject <KalDataSource>
 {
