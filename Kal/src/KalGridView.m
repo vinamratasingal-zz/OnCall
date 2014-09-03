@@ -170,15 +170,15 @@ static NSString *kSlideAnimationId = @"KalSwitchMonths";
             return;
         
         NSDate *date = tile.date;
-        if ([date isEqualToDate:self.beginDate]) {
-            date = self.beginDate;
-            _beginDate = _endDate;
-            _endDate = date;
-        } else if ([date isEqualToDate:self.endDate]) {
-            
-        } else {
+//        if ([date isEqualToDate:self.beginDate]) {
+//            date = self.beginDate;
+//            _beginDate = _endDate;
+//            _endDate = date;
+//        } else if ([date isEqualToDate:self.endDate]) {
+//            
+//        } else {
             self.beginDate = date;
-        }
+        //}
     }
 }
 

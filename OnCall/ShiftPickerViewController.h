@@ -13,6 +13,7 @@
 @property (nonatomic, retain) IBOutlet UIDatePicker* startDate;
 @property (nonatomic, retain) IBOutlet UIDatePicker* endDate;
 
+- (void) setDate:(NSDate*) date;
 
 
 @end

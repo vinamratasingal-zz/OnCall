@@ -175,9 +175,6 @@
     }];
 }
 
-
-
-
 /**
  This message will be sent to your dataSource immediately
  *        after you issue the loadedDataSource: callback message
@@ -224,7 +221,7 @@
 **/
 - (void)removeAllItems
 {
-    // do nothing
+    
 }
 
 @end

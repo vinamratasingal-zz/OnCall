@@ -8,6 +8,7 @@
 
 #import "ShiftPickerViewController.h"
 #import <Parse/Parse.h>
+#import <Kal.h>
 
 @interface ShiftPickerViewController ()
 
@@ -21,7 +22,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
         
         
     }
@@ -32,9 +32,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    startDate.date = [[NSDate alloc] initWithTimeIntervalSinceNow:(NSTimeInterval) 2 ];
+    // Custom initialization
+    startDate.date = [[NSDate alloc] initWithTimeIntervalSinceNow:(NSTimeInterval) 0 ];
     startDate.minimumDate = [[NSDate alloc] initWithTimeIntervalSinceNow:(NSTimeInterval) 0 ];
-    endDate.date = [[NSDate alloc] initWithTimeIntervalSinceNow:(NSTimeInterval) 2 ];
+    endDate.date = [[NSDate alloc] initWithTimeIntervalSinceNow:(NSTimeInterval) 300 ];
     endDate.minimumDate = [[NSDate alloc] initWithTimeIntervalSinceNow:(NSTimeInterval) 0 ];
 }
 
@@ -58,14 +59,32 @@
 
 -(IBAction)submitAction:(id)sender {
     
+    //validate valid range
+    
     //add event to parse
     PFObject *newShift = [PFObject objectWithClassName:@"Shift"];
     newShift[@"startDate"] = startDate.date;
     newShift[@"endDate"] = endDate.date;
     newShift[@"name"] = @"test"; //TODO: add user's name
-    [newShift saveInBackground];
+    [newShift saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if(succeeded) {
+            UITabBarController* tabBar = (UITabBarController*) self.view.window.rootViewController;
+            KalViewController* calendar = ((UINavigationController*)(tabBar.viewControllers[1])).viewControllers[0];
+           
+            [calendar reloadData];
+            
+        }
+        else
+        {
+            @throw error;
+        }
+    }];
     
+    
+    //[calendar reloadData];
+             
     [self dismissViewControllerAnimated:YES completion:^{
+        
     }];
 }
 
@@ -73,6 +92,13 @@
     [self dismissViewControllerAnimated:NO completion:^{
     }];
 }
+
+- (void) setDate:(NSDate*) date
+{
+    startDate.date = date;
+    endDate.date = date; //maybe set this to like 5 minute later
+}
+
 
 - (void)didReceiveMemoryWarning
 {
