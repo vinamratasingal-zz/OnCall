@@ -7,6 +7,7 @@
 //
 
 #import "SignUpViewController.h"
+#import "LogInViewController.h"
 #import <Parse/Parse.h>
 
 @interface SignUpViewController ()
@@ -54,6 +55,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+//Makes sure that after successful sign up, user is lead back to the login screen
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        [self performSegueWithIdentifier:@"returnToLogin" sender:self];
+    }
+    
+}
+
 - (IBAction)registrationConfirmation:(id)sender {
     //make sure all fields are non-empty
     if(_usernameField.text.length == 0 || _emailOneField.text.length == 0 || _passwordOneField.text.length == 0 || _passwordTwoField.text.length == 0) {
@@ -81,9 +90,9 @@
     user.email = email;
         [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
-            //TODO: tell user to check their email if not verified
-            UIAlertView *savedInfo = [[UIAlertView alloc] initWithTitle:@"Whee saved" message:@"YOU GO GIRL" delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
+            UIAlertView *savedInfo = [[UIAlertView alloc] initWithTitle:@"Please authenticate your email" message:@"Authenticate your email and login" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [savedInfo show];
+            
         } else {
             NSString *errorString = [error userInfo][@"error"];
             UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Something went wrong..." message:errorString delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];

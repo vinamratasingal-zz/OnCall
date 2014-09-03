@@ -72,6 +72,14 @@
     NSString *password = _passwordField.text;
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error) {
         if (user) {
+            if(![[user objectForKey:@"emailVerified"] boolValue]) {
+                [user refresh];
+                if (![[user objectForKey:@"emailVerified"] boolValue]) {
+                    UIAlertView *missingAuthAlert = [[UIAlertView alloc] initWithTitle:@"Missing email authentication" message:@"Please authenticate your email and try again" delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
+                    [missingAuthAlert show];
+                    return;
+                }
+            }
             //TODO: Actually make this do something useful
             //UIAlertView *loggedinAlert = [[UIAlertView alloc] initWithTitle:@"Whee logged in" message:@"YOU GO GIRL" delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
             //[loggedinAlert show];
