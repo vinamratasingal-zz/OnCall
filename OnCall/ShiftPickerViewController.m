@@ -32,6 +32,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    startDate.date = [[NSDate alloc] initWithTimeIntervalSinceNow:(NSTimeInterval) 2 ];
+    startDate.minimumDate = [[NSDate alloc] initWithTimeIntervalSinceNow:(NSTimeInterval) 0 ];
+    endDate.date = [[NSDate alloc] initWithTimeIntervalSinceNow:(NSTimeInterval) 2 ];
+    endDate.minimumDate = [[NSDate alloc] initWithTimeIntervalSinceNow:(NSTimeInterval) 0 ];
 }
 
 - (void)updateViewConstraints {
