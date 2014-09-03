@@ -7,6 +7,8 @@
 #import "KalLogic.h"
 #import "KalDataSource.h"
 #import "KalPrivate.h"
+#import "../../OnCall/ShiftPickerViewController.h" //yeah yeah this is probably a terrible way to do things (means the relative locations need to stay fixed)
+
 
 #define PROFILER 0
 #if PROFILER
@@ -142,13 +144,17 @@ NSString *const KalDataSourceChangedNotification = @"KalDataSourceChangedNotific
     [tableView flashScrollIndicators];
 }
 
+
+
 -(void) didLongPressDate:(NSDate *)date
 {
+    [self didSelectDate:date];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
     UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"ShiftPicker"];
+    
     vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:vc animated:YES completion:NULL];
-
+    [self presentViewController:vc animated:YES completion:^{[(ShiftPickerViewController *)vc setDate:date];}];
+    
 }
 
 - (void)didSelectBeginDate:(NSDate *)beginDate endDate:(NSDate *)endDate
@@ -188,6 +194,7 @@ NSString *const KalDataSourceChangedNotification = @"KalDataSourceChangedNotific
         [dates replaceObjectAtIndex:i withObject:[dates objectAtIndex:i]];
     
     [[self calendarView] markTilesForDates:dates];
+    [self didSelectDate:self.selectedDate];
 }
 
 // ---------------------------------------
@@ -215,6 +222,7 @@ NSString *const KalDataSourceChangedNotification = @"KalDataSourceChangedNotific
 #endif
     
     [self reloadData];
+    
 }
 
 // -----------------------------------------------------------------------------------
@@ -239,6 +247,8 @@ NSString *const KalDataSourceChangedNotification = @"KalDataSourceChangedNotific
     [super viewDidUnload];
     tableView = nil;
 }
+
+
 
 - (void)viewWillAppear:(BOOL)animated
 {

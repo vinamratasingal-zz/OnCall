@@ -44,7 +44,7 @@
     UINavigationController* navController = [[UINavigationController alloc]
                                              initWithRootViewController:calendar];
     
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects: mainView, mainView, navController, nil];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects: mainView, navController, nil];
     
     self.window.rootViewController = self.tabBarController;
     tabBarController.delegate = self;
@@ -84,18 +84,28 @@
 
 #pragma mark UITabBarControllerDelegate Methods 
 
-- (BOOL)tabBarController:(UITabBarController *)tBarController shouldSelectViewController:(UIViewController *)viewController {
-    
-    NSUInteger tabIndex = [tBarController.viewControllers indexOfObject:viewController];
-    
-    if (viewController == [tBarController.viewControllers objectAtIndex:tabIndex] ) {
-        return YES;
-    }
-    
-    return NO;
-    
-}
 
+//I have no memory of putting this here, what
+//- (BOOL)tabBarController:(UITabBarController *)tBarController shouldSelectViewController:(UIViewController *)viewController {
+//    
+//    NSUInteger tabIndex = [tBarController.viewControllers indexOfObject:viewController];
+//    
+//    if (viewController == [tBarController.viewControllers objectAtIndex:tabIndex] ) {
+//        return YES;
+//    }
+//    
+//    return NO;
+//    
+//}
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    if([viewController isKindOfClass:[UINavigationController class]])
+    {
+        KalViewController *calendar = ((UINavigationController*)viewController).viewControllers[0]; //assuming only calendar is ever going to be in stack
+        [calendar didSelectDate: calendar.selectedDate];
+    }
+}
 
 
 @end
