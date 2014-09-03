@@ -10,12 +10,16 @@
 #import "LogInViewController.h"
 #import <Parse/Parse.h>
 
-@interface SignUpViewController ()
+@interface SignUpViewController () {
+    NSArray *_pickerData;
+}
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *emailOneField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordOneField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTwoField;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumberField;
+@property (weak, nonatomic) IBOutlet UIPickerView *rolePickerChoice;
 
 @end
 
@@ -37,22 +41,19 @@
     _passwordOneField.secureTextEntry = YES;
     _passwordTwoField.secureTextEntry = YES;
     self.scrollView.contentSize = CGSizeMake(0, 701);
-    
-    
+    _phoneNumberField.keyboardType = UIKeyboardTypeNamePhonePad;
     UITapGestureRecognizer* tapBackground = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
     [tapBackground setNumberOfTapsRequired:1];
     [self.view addGestureRecognizer:tapBackground];
+    //Make and connect data
+    _pickerData = @[@"RA", @"Resident"];
+    self.rolePickerChoice.dataSource = self;
+    self.rolePickerChoice.delegate = self;
 }
 
 -(void) dismissKeyboard:(id)sender
 {
     [self.view endEditing:YES];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 //Makes sure that after successful sign up, user is lead back to the login screen
@@ -88,6 +89,10 @@
     user.username = _usernameField.text;
     user.password = _passwordTwoField.text;
     user.email = email;
+    user[@"phone_number"] = _phoneNumberField.text;
+    NSInteger row = [_rolePickerChoice selectedRowInComponent:0];
+    NSString *choice = [self pickerView: _rolePickerChoice titleForRow:row forComponent:1];
+    user[@"role"] = choice;
         [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             UIAlertView *savedInfo = [[UIAlertView alloc] initWithTitle:@"Please authenticate your email" message:@"Authenticate your email and login" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -99,5 +104,28 @@
             [errorAlert show];
         }
     }];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+// The number of columns of data
+- (int)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+// The number of rows of data
+- (int)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return _pickerData.count;
+}
+
+// The data to return for the row and component (column) that's being passed in
+-(NSString *) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return [_pickerData objectAtIndex:row];
 }
 @end

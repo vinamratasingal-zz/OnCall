@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SignUpViewController : UIViewController
+@interface SignUpViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
 - (IBAction)registrationConfirmation:(id)sender;
 
 @end
