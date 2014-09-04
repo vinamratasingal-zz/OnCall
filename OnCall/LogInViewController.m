@@ -12,6 +12,7 @@
 #import "Kal.h"
 #import "NSDate+Convenience.h"
 #import "MyKalDataSource.h"
+#import "OCTabBarControllerDelegate.h"
 
 
 @interface LogInViewController ()
@@ -81,7 +82,20 @@
                     return;
                 }*/
             }
-            [self dismissViewControllerAnimated:YES completion:^{ }];
+            
+            UITabBarController * tabBar = (UITabBarController *)self.view.window.rootViewController;
+            if([user[@"role"] isEqualToString:@"RA"])
+            {
+                tabBar.viewControllers = [[OCTabBarControllerDelegate instance] getNewViewControllersForTabBar:user];
+            }
+            else
+            {
+                tabBar.viewControllers =  [[OCTabBarControllerDelegate instance] getNewViewControllersForTabBar:user];
+            }
+            
+            [self dismissViewControllerAnimated:YES completion:^{
+                
+            }];
     
             
         } else {
