@@ -40,12 +40,17 @@
     calendar.dataSource = source;
     
     [calendar showAndSelectDate:[NSDate date]];
-    
     UINavigationController* navController = [[UINavigationController alloc]
                                              initWithRootViewController:calendar];
-    
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects: mainView, navController, nil];
-    
+    PFUser *currUser = [PFUser currentUser];
+    if(currUser == NULL) {
+        NSLog(@"derp derp derp");
+    }
+    if([currUser[@"role"] isEqualToString:@"RA"]) {
+        self.tabBarController.viewControllers = [NSArray arrayWithObjects: mainView, navController, nil];
+    } else {
+        self.tabBarController.viewControllers = [NSArray arrayWithObjects: mainView, nil];
+    }
     self.window.rootViewController = self.tabBarController;
     tabBarController.delegate = self;
     

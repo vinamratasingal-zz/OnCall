@@ -58,7 +58,6 @@
     }
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error) {
-            NSLog(@"Retrieved that shit");
             for(PFObject *object in objects) {
                 NSString *onCallRAName = [object objectForKey:@"name"];
                 NSString *onCallRAPhone = [object objectForKey:@"phone_number"];
@@ -69,7 +68,7 @@
                 _phoneNumberRAField.text = onCallRAPhone;
             }
         } else {
-            NSLog(@"Errorrrrr");
+            NSLog(@"Error: %@", error);
         }
     }];
     if ([currentUser[@"role"] isEqualToString:@"RA"]) {

@@ -80,10 +80,6 @@
                     return;
                 }
             }
-            //TODO: Actually make this do something useful
-            //UIAlertView *loggedinAlert = [[UIAlertView alloc] initWithTitle:@"Whee logged in" message:@"YOU GO GIRL" delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
-            //[loggedinAlert show];
-    
             [self dismissViewControllerAnimated:YES completion:^{ }];
     
             
