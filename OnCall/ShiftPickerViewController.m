@@ -98,8 +98,12 @@
 
 - (void) setDate:(NSDate*) date
 {
-    startDate.date = date;
-    endDate.date = date; //maybe set this to like 5 minute later
+    if([startDate.date compare:date] == NSOrderedAscending)   //startDate.date < date
+    {
+        startDate.date = date;
+        endDate.date = date; //maybe set this to like 5 minute later
+
+    }
 }
 
 

@@ -14,6 +14,7 @@
 		4ACE9FAC19A47842003B6F59 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ACE9FAA19A47842003B6F59 /* MainViewController.xib */; };
 		4ACE9FB419A5AB1E003B6F59 /* ShiftPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACE9FB219A5AB1E003B6F59 /* ShiftPickerViewController.m */; };
 		4ACE9FB519A5AB1E003B6F59 /* ShiftPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ACE9FB319A5AB1E003B6F59 /* ShiftPickerViewController.xib */; };
+		4AF3D1E519B850C6002A81C5 /* OCTabBarControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3D1E419B850C6002A81C5 /* OCTabBarControllerDelegate.m */; };
 		5A2E91EA1996BAE60076CA78 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A2E91E91996BAE60076CA78 /* Storyboard.storyboard */; };
 		5A2E91EE1996C1590076CA78 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E91EC1996C1590076CA78 /* LogInViewController.m */; };
 		5A2E91EF1996C1590076CA78 /* LogInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A2E91ED1996C1590076CA78 /* LogInViewController.xib */; };
@@ -69,6 +70,8 @@
 		4ACE9FB119A5AB1E003B6F59 /* ShiftPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShiftPickerViewController.h; sourceTree = "<group>"; };
 		4ACE9FB219A5AB1E003B6F59 /* ShiftPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShiftPickerViewController.m; sourceTree = "<group>"; };
 		4ACE9FB319A5AB1E003B6F59 /* ShiftPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShiftPickerViewController.xib; sourceTree = "<group>"; };
+		4AF3D1E319B850C6002A81C5 /* OCTabBarControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTabBarControllerDelegate.h; sourceTree = "<group>"; };
+		4AF3D1E419B850C6002A81C5 /* OCTabBarControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTabBarControllerDelegate.m; sourceTree = "<group>"; };
 		5A2E91E91996BAE60076CA78 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		5A2E91EB1996C1590076CA78 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		5A2E91EC1996C1590076CA78 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 				4ACE9FB119A5AB1E003B6F59 /* ShiftPickerViewController.h */,
 				4ACE9FB219A5AB1E003B6F59 /* ShiftPickerViewController.m */,
 				4ACE9FB319A5AB1E003B6F59 /* ShiftPickerViewController.xib */,
+				4AF3D1E319B850C6002A81C5 /* OCTabBarControllerDelegate.h */,
+				4AF3D1E419B850C6002A81C5 /* OCTabBarControllerDelegate.m */,
 			);
 			path = OnCall;
 			sourceTree = "<group>";
@@ -376,6 +381,7 @@
 				4ACE9FB419A5AB1E003B6F59 /* ShiftPickerViewController.m in Sources */,
 				5AB3F07A1996B244009DBABE /* main.m in Sources */,
 				4ACE9F3F19A2A6E6003B6F59 /* MyKalDataSource.m in Sources */,
+				4AF3D1E519B850C6002A81C5 /* OCTabBarControllerDelegate.m in Sources */,
 				5A2E91F31996C1F70076CA78 /* SignUpViewController.m in Sources */,
 				4ACE9FAB19A47842003B6F59 /* MainViewController.m in Sources */,
 				5A2E91EE1996C1590076CA78 /* LogInViewController.m in Sources */,

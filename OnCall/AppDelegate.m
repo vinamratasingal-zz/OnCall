@@ -11,15 +11,16 @@
 #import "Kal.h"
 #import "MyKalDataSource.h"
 #import "MainViewController.h"
-#import "NSDate+Convenience.h"
+
+#import "OCTabBarControllerDelegate.h"
 
 @interface AppDelegate ()
 
-@property (nonatomic, retain) id<KalDataSource> source;
+
 @end
 
 @implementation AppDelegate
-@synthesize source;
+
 @synthesize tabBarController;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -32,27 +33,11 @@
     
     self.tabBarController = [[UITabBarController alloc] init];
     
-    MainViewController * mainView = [[MainViewController alloc ] initWithNibName:@"MainViewController" bundle:nil];
+    OCTabBarControllerDelegate * tabBarDelegate = [OCTabBarControllerDelegate instance];
+    tabBarController.viewControllers = [tabBarDelegate getNewViewControllersForTabBar:[PFUser currentUser]];
     
-    source = [[MyKalDataSource alloc] init];
-    KalViewController *calendar = [[KalViewController alloc] initWithSelectionMode:KalSelectionModeSingle];
-    calendar.selectedDate = [NSDate dateStartOfDay:[[NSDate date] offsetDay:0]];
-    calendar.dataSource = source;
-    
-    [calendar showAndSelectDate:[NSDate date]];
-    UINavigationController* navController = [[UINavigationController alloc]
-                                             initWithRootViewController:calendar];
-    PFUser *currUser = [PFUser currentUser];
-    if(currUser == NULL) {
-        NSLog(@"derp derp derp");
-    }
-    if([currUser[@"role"] isEqualToString:@"RA"]) {
-        self.tabBarController.viewControllers = [NSArray arrayWithObjects: mainView, navController, nil];
-    } else {
-        self.tabBarController.viewControllers = [NSArray arrayWithObjects: mainView, nil];
-    }
     self.window.rootViewController = self.tabBarController;
-    tabBarController.delegate = self;
+    tabBarController.delegate = [OCTabBarControllerDelegate instance];
     
     [self.window makeKeyAndVisible];
     return YES;
@@ -86,31 +71,5 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
-#pragma mark UITabBarControllerDelegate Methods 
-
-
-//I have no memory of putting this here, what
-//- (BOOL)tabBarController:(UITabBarController *)tBarController shouldSelectViewController:(UIViewController *)viewController {
-//    
-//    NSUInteger tabIndex = [tBarController.viewControllers indexOfObject:viewController];
-//    
-//    if (viewController == [tBarController.viewControllers objectAtIndex:tabIndex] ) {
-//        return YES;
-//    }
-//    
-//    return NO;
-//    
-//}
-
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
-{
-    if([viewController isKindOfClass:[UINavigationController class]])
-    {
-        KalViewController *calendar = ((UINavigationController*)viewController).viewControllers[0]; //assuming only calendar is ever going to be in stack
-        [calendar didSelectDate: calendar.selectedDate];
-    }
-}
-
 
 @end

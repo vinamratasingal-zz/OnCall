@@ -66,7 +66,7 @@
 
 - (NSString*) timeStringFromDate: (NSDate*) date {
     NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
-    timeFormatter.dateFormat = @"HH:mm";
+    timeFormatter.dateFormat = @"hh:mm a";
     return [timeFormatter stringFromDate: date];
 }
 

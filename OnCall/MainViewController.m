@@ -45,7 +45,7 @@
     PFUser *currentUser = [PFUser currentUser];
     if(currentUser == nil) {
         [PFUser logOut];
-        return;
+        [self showLogin];
     }
     NSString* currDorm;
     if(currentUser != NULL) {
