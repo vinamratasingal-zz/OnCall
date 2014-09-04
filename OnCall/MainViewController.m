@@ -106,17 +106,17 @@
 
 - (IBAction)callRAButton:(id)sender {
     NSString *phoneNumber = [@"telprompt://" stringByAppendingString:raOnCallPhone];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:phoneNumber]]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+    } else {
+        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Uh oh" message:@"Couldn't place that call" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [error show];
+    }
 }
 
 - (IBAction)messageRAButton:(id)sender {
     NSString *stringURL = [@"sms:" stringByAppendingString:raOnCallPhone];
     NSURL *url = [NSURL URLWithString:stringURL];
-    if ([[UIApplication sharedApplication] canOpenURL:url]) {
-        [[UIApplication sharedApplication] openURL:url];
-    } else {
-        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Uh oh" message:@"Couldn't place that call" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [error show];
-    }
+    [[UIApplication sharedApplication] openURL:url];
 }
 @end
