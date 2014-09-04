@@ -81,15 +81,6 @@
     }
 }
 
-//Makes sure that after successful sign up, user is lead back to the login screen
-/*- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSInteger roleRow = [_rolePickerChoice selectedRowInComponent:0];
-    NSString *roleChoice = [self pickerView: _rolePickerChoice titleForRow:roleRow forComponent:1];
-    if (buttonIndex == 0 && [self shouldPerformSegueWithIdentifier:@"returnToLogin" sender:self]) {
-        [self performSegueWithIdentifier:@"returnToLogin" sender:self];
-    }
-}*/
-
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     //recheck validations to make sure segue happens properly
     if(_nameField.text.length == 0 || _emailOneField.text.length == 0 || _passwordOneField.text.length == 0 || _passwordTwoField.text.length == 0) {
@@ -204,5 +195,9 @@
     } else {
         return [_dormData objectAtIndex:row];
     }
+}
+
+- (IBAction)unwindFromRAVerification:(UIStoryboardSegue *)segue {
+    
 }
 @end

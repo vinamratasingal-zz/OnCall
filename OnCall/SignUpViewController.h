@@ -10,5 +10,5 @@
 
 @interface SignUpViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
 - (IBAction)registrationConfirmation:(id)sender;
-
+- (IBAction)unwindFromRAVerification:(UIStoryboardSegue *)segue;
 @end
