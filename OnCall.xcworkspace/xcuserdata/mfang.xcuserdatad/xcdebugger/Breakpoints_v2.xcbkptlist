@@ -303,7 +303,7 @@
                   symbolName = "-[KalViewController didLongPressDate:]"
                   moduleName = "OnCall"
                   urlString = "file:///Users/mfang/OnCall/Kal/src/KalViewController.m"
-                  timestampString = "431420073.198289"
+                  timestampString = "431500375.66717"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "156"
@@ -317,7 +317,7 @@
                   symbolName = "__38-[KalViewController didLongPressDate:]_block_invoke"
                   moduleName = "OnCall"
                   urlString = "file:///Users/mfang/OnCall/Kal/src/KalViewController.m"
-                  timestampString = "431420073.198463"
+                  timestampString = "431500375.667464"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "156"
@@ -339,7 +339,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
             endingLineNumber = "39"
-            landmarkName = "-viewDidAppear:"
+            landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -850,6 +850,22 @@
             startingLineNumber = "185"
             endingLineNumber = "185"
             landmarkName = "-setHeaderTitleText:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OnCall/MainViewController.m"
+            timestampString = "431500367.688548"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "-viewDidAppear:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

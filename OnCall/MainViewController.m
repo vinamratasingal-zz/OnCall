@@ -46,6 +46,8 @@
     NSString* currDorm;
     if(currentUser != NULL) {
         currDorm = currentUser[@"dorm"];
+        if(currDorm == nil)
+            [PFUser logOut];
     } else {
         currDorm = @"Please login to see this";
     }
@@ -54,6 +56,7 @@
     [query whereKey:@"startDate" lessThanOrEqualTo:date];
     [query whereKey:@"endDate" greaterThan:date];
     if(currentUser != NULL) {
+        //[PFUser logOut];
         [query whereKey: @"dorm" equalTo:currDorm];
     }
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
