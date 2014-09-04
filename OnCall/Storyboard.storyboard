@@ -7,7 +7,7 @@
         <!--Log In Controller-->
         <scene sceneID="GaJ-Mq-PgT">
             <objects>
-                <viewController id="eZr-uK-fqi" userLabel="Log In Controller" customClass="LogInViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="logInController" title="logInController" id="eZr-uK-fqi" userLabel="Log In Controller" customClass="LogInViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DlL-uL-8PZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -201,7 +201,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rcN-cA-Dnd">
-                                        <rect key="frame" x="20" y="67" width="48" height="21"/>
+                                        <rect key="frame" x="20" y="61" width="48" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>

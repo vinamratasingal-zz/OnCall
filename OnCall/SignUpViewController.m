@@ -64,56 +64,89 @@
 
 //Makes sure that after successful sign up, user is lead back to the login screen
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
+    if (buttonIndex == 0 && [self shouldPerformSegueWithIdentifier:@"returnToLogin" sender:self]) {
         [self performSegueWithIdentifier:@"returnToLogin" sender:self];
     }
-    
 }
 
-- (IBAction)registrationConfirmation:(id)sender {
-    //make sure all fields are non-empty
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    //recheck validations to make sure segue happens properly
+    if(_nameField.text.length == 0 || _emailOneField.text.length == 0 || _passwordOneField.text.length == 0 || _passwordTwoField.text.length == 0) {
+        return FALSE;
+    }
+    //email validation
+    NSString *email = _emailOneField.text;
+    if([email rangeOfString:@"@stanford.edu"].location == NSNotFound) {
+        return FALSE;
+    }
+    //make sure the two passwords given match
+    if(![_passwordOneField.text isEqualToString:_passwordTwoField.text]) {
+        return FALSE;
+    }
+    //correct digits for phone number
+    if(_phoneNumberField.text.length != 10) {
+        return FALSE;
+    }
+    return TRUE;
+}
+
+- (BOOL)validateData {
     if(_nameField.text.length == 0 || _emailOneField.text.length == 0 || _passwordOneField.text.length == 0 || _passwordTwoField.text.length == 0) {
         UIAlertView *someEmptyFieldError = [[UIAlertView alloc] initWithTitle:@"Couldn't sign up" message:@"Please make sure all the fields were supplied" delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
         [someEmptyFieldError show];
-        return; 
+        return FALSE;
     }
     //email validation
     NSString *email = _emailOneField.text;
     if([email rangeOfString:@"@stanford.edu"].location == NSNotFound) {
         UIAlertView *noUsernameOrPasswordAlert = [[UIAlertView alloc] initWithTitle:@"Invalid email" message:@"You must specify a stanford.edu email address" delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
         [noUsernameOrPasswordAlert show];
-        return;
+        return FALSE;
     }
     //make sure the two passwords given match
     if(![_passwordOneField.text isEqualToString:_passwordTwoField.text]) {
         UIAlertView *passwordMismatch = [[UIAlertView alloc] initWithTitle:@"Password mismatch" message:@"Please make sure you correctly entered the same password in both fields" delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
         [passwordMismatch show];
-        return;
+        return FALSE;
     }
-    //entry is validated, so let's go ahead and load it in our DB
-    PFUser *user = [PFUser user];
-    user[@"Name"] = _nameField.text;
-    user.password = _passwordTwoField.text;
-    user.email = email;
-    user.username = email;
-    user[@"phone_number"] = _phoneNumberField.text;
-    NSInteger roleRow = [_rolePickerChoice selectedRowInComponent:0];
-    NSString *roleChoice = [self pickerView: _rolePickerChoice titleForRow:roleRow forComponent:1];
-    user[@"role"] = roleChoice;
-    NSInteger dormRow = [_dormPickerChoice selectedRowInComponent:0];
-    NSString *dormChoice = [self pickerView: _dormPickerChoice titleForRow:dormRow forComponent:1];
-    user[@"dorm"] = dormChoice;
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            UIAlertView *savedInfo = [[UIAlertView alloc] initWithTitle:@"Please authenticate your email" message:@"Authenticate your email and login" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [savedInfo show];
-        } else {
-            NSString *errorString = [error userInfo][@"error"];
-            UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Something went wrong..." message:errorString delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
-            [errorAlert show];
-            return; 
-        }
-    }];
+    //correct digits for phone number
+    if(_phoneNumberField.text.length != 10) {
+        UIAlertView *wrongPhoneLength = [[UIAlertView alloc] initWithTitle:@"Phone Number Invalid" message:@"Please make sure you enter 10 digits for the phone number" delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
+        [wrongPhoneLength show];
+        return FALSE;
+    }
+    return TRUE;
+}
+
+- (IBAction)registrationConfirmation:(id)sender {
+    if([self validateData]) {
+        //entry is validated, so let's go ahead and load it in our DB
+        PFUser *user = [PFUser user];
+        NSString *email = _emailOneField.text;
+        user[@"Name"] = _nameField.text;
+        user.password = _passwordTwoField.text;
+        user.email = email;
+        user.username = email;
+        user[@"phone_number"] = _phoneNumberField.text;
+        NSInteger roleRow = [_rolePickerChoice selectedRowInComponent:0];
+        NSString *roleChoice = [self pickerView: _rolePickerChoice titleForRow:roleRow forComponent:1];
+        user[@"role"] = roleChoice;
+        NSInteger dormRow = [_dormPickerChoice selectedRowInComponent:0];
+        NSString *dormChoice = [self pickerView: _dormPickerChoice titleForRow:dormRow forComponent:1];
+        user[@"dorm"] = dormChoice;
+        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                UIAlertView *savedInfo = [[UIAlertView alloc] initWithTitle:@"Please authenticate your email" message:@"Authenticate your email and login" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [savedInfo show];
+                return;
+            } else {
+                NSString *errorString = [error userInfo][@"error"];
+                UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Something went wrong..." message:errorString delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
+                [errorAlert show];
+                return;
+            }
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning
