@@ -130,14 +130,20 @@
 **/
 - (void)presentingDatesFrom:(NSDate *)fromDate to:(NSDate *)toDate delegate:(id<KalDataSourceCallbacks>)delegate
 {
+    PFUser *currUser = [PFUser currentUser];
+    if(currUser == nil) {
+        [PFUser logOut];
+        return; 
+    }
     //query for all shifts with start OR end dates between fromDate and toDate
     PFQuery *queryStart = [PFQuery queryWithClassName:@"Shift"];
     [queryStart whereKey:@"startDate" greaterThanOrEqualTo:fromDate];
     [queryStart whereKey:@"startDate" lessThanOrEqualTo:toDate];
+    [queryStart whereKey:@"dorm" equalTo:currUser[@"dorm"]];
     PFQuery *queryEnd = [PFQuery queryWithClassName:@"Shift"];
     [queryEnd whereKey:@"startDate" greaterThanOrEqualTo:fromDate];
     [queryEnd whereKey:@"startDate" lessThanOrEqualTo:toDate];
-    
+    [queryEnd whereKey:@"dorm" equalTo:currUser[@"dorm"]];
     PFQuery *query = [PFQuery orQueryWithSubqueries:@[queryStart, queryEnd]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *shiftList, NSError *error) {
         if (!error) {

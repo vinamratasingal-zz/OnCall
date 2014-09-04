@@ -43,6 +43,10 @@
     //check login
     NSDate *date = [NSDate date];
     PFUser *currentUser = [PFUser currentUser];
+    if(currentUser == nil) {
+        [PFUser logOut];
+        return;
+    }
     NSString* currDorm;
     if(currentUser != NULL) {
         currDorm = currentUser[@"dorm"];
@@ -55,10 +59,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Shift"];
     [query whereKey:@"startDate" lessThanOrEqualTo:date];
     [query whereKey:@"endDate" greaterThan:date];
-    if(currentUser != NULL) {
-        //[PFUser logOut];
-        [query whereKey: @"dorm" equalTo:currDorm];
-    }
+    [query whereKey: @"dorm" equalTo:currDorm];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error) {
             for(PFObject *object in objects) {

@@ -74,11 +74,12 @@
         if (user) {
             if(![[user objectForKey:@"emailVerified"] boolValue]) {
                 [user refresh];
-                if (![[user objectForKey:@"emailVerified"] boolValue]) {
+                //TODO: CHANGE BACK PLEASEEE! 
+                /*if (![[user objectForKey:@"emailVerified"] boolValue]) {
                     UIAlertView *missingAuthAlert = [[UIAlertView alloc] initWithTitle:@"Missing email authentication" message:@"Please authenticate your email and try again" delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
                     [missingAuthAlert show];
                     return;
-                }
+                }*/
             }
             [self dismissViewControllerAnimated:YES completion:^{ }];
     
