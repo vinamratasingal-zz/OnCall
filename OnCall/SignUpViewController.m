@@ -8,6 +8,7 @@
 
 #import "SignUpViewController.h"
 #import "LogInViewController.h"
+#import "RAVerificationViewController.h"
 #import <Parse/Parse.h>
 
 @interface SignUpViewController () {
@@ -62,12 +63,32 @@
     [self.view endEditing:YES];
 }
 
+- (void)prepareForSegue:(UIStoryboardPopoverSegue *)segue sender:(id)sender {
+    NSLog(@"prepareForSegue: %@", segue.identifier);
+    if ([segue.identifier isEqualToString:@"signUpToRAVerification"]) {
+        RAVerificationViewController *ravc = (RAVerificationViewController *)segue.destinationViewController;
+        NSInteger roleRow = [_rolePickerChoice selectedRowInComponent:0];
+        NSString *role = [self pickerView: _rolePickerChoice titleForRow:roleRow forComponent:1];
+        ravc.role = role;
+        NSString *email = _emailOneField.text;
+        ravc.name = _nameField.text;
+        ravc.password = _passwordTwoField.text;
+        ravc.email = email;
+        ravc.phoneNumber = _phoneNumberField.text;
+        NSInteger dormRow = [_dormPickerChoice selectedRowInComponent:0];
+        NSString *dorm = [self pickerView: _dormPickerChoice titleForRow:dormRow forComponent:1];
+        ravc.dormChoice= dorm;
+    }
+}
+
 //Makes sure that after successful sign up, user is lead back to the login screen
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+/*- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSInteger roleRow = [_rolePickerChoice selectedRowInComponent:0];
+    NSString *roleChoice = [self pickerView: _rolePickerChoice titleForRow:roleRow forComponent:1];
     if (buttonIndex == 0 && [self shouldPerformSegueWithIdentifier:@"returnToLogin" sender:self]) {
         [self performSegueWithIdentifier:@"returnToLogin" sender:self];
     }
-}
+}*/
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     //recheck validations to make sure segue happens properly
@@ -120,32 +141,37 @@
 
 - (IBAction)registrationConfirmation:(id)sender {
     if([self validateData]) {
-        //entry is validated, so let's go ahead and load it in our DB
-        PFUser *user = [PFUser user];
+        PFUser* user = [PFUser user];
+        NSInteger roleRow = [_rolePickerChoice selectedRowInComponent:0];
+        NSString *role = [self pickerView: _rolePickerChoice titleForRow:roleRow forComponent:1];
+        user[@"role"] = role;
         NSString *email = _emailOneField.text;
         user[@"Name"] = _nameField.text;
         user.password = _passwordTwoField.text;
         user.email = email;
         user.username = email;
         user[@"phone_number"] = _phoneNumberField.text;
-        NSInteger roleRow = [_rolePickerChoice selectedRowInComponent:0];
-        NSString *roleChoice = [self pickerView: _rolePickerChoice titleForRow:roleRow forComponent:1];
-        user[@"role"] = roleChoice;
         NSInteger dormRow = [_dormPickerChoice selectedRowInComponent:0];
         NSString *dormChoice = [self pickerView: _dormPickerChoice titleForRow:dormRow forComponent:1];
         user[@"dorm"] = dormChoice;
-        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (!error) {
-                UIAlertView *savedInfo = [[UIAlertView alloc] initWithTitle:@"Please authenticate your email" message:@"Authenticate your email and login" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [savedInfo show];
-                return;
-            } else {
-                NSString *errorString = [error userInfo][@"error"];
-                UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Something went wrong..." message:errorString delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
-                [errorAlert show];
-                return;
-            }
-        }];
+        if([role isEqualToString: @"Resident"]) {
+            //entry is validated, so let's go ahead and load it in our DB
+            [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (!error) {
+                    UIAlertView *savedInfo = [[UIAlertView alloc] initWithTitle:@"Please authenticate your email" message:@"Authenticate your email and login" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [savedInfo show];
+                    [self performSegueWithIdentifier:@"successfulRegisterSegue" sender:self];
+                } else {
+                    NSString *errorString = [error userInfo][@"error"];
+                    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Something went wrong..." message:errorString delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
+                    [errorAlert show];
+                    return;
+                }
+            }];
+        } else {
+            //RA, so let's validate dis ish
+            [self performSegueWithIdentifier:@"signUpToRAVerification" sender:self];
+        }
     }
 }
 

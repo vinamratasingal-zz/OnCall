@@ -32,6 +32,7 @@
 		5AB3F0891996B244009DBABE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AB3F0711996B244009DBABE /* UIKit.framework */; };
 		5AB3F0911996B244009DBABE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AB3F08F1996B244009DBABE /* InfoPlist.strings */; };
 		5AB3F0931996B244009DBABE /* OnCallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB3F0921996B244009DBABE /* OnCallTests.m */; };
+		5ADDD95919B90E4F00C3C216 /* RAVerificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADDD95819B90E4F00C3C216 /* RAVerificationViewController.m */; };
 		7F3BAC364D114E54BAE60603 /* libPods-OnCall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB91D5152FB7493C92970C61 /* libPods-OnCall.a */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,8 @@
 		5AB3F08E1996B244009DBABE /* OnCallTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OnCallTests-Info.plist"; sourceTree = "<group>"; };
 		5AB3F0901996B244009DBABE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5AB3F0921996B244009DBABE /* OnCallTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnCallTests.m; sourceTree = "<group>"; };
+		5ADDD95719B90E4F00C3C216 /* RAVerificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RAVerificationViewController.h; path = ../RAVerificationViewController.h; sourceTree = "<group>"; };
+		5ADDD95819B90E4F00C3C216 /* RAVerificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RAVerificationViewController.m; path = ../RAVerificationViewController.m; sourceTree = "<group>"; };
 		DB91D5152FB7493C92970C61 /* libPods-OnCall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OnCall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F82AFE850FCE4B15ADEB8021 /* Pods-OnCall.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnCall.xcconfig"; path = "Pods/Pods-OnCall.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,6 +173,8 @@
 		5AB3F0731996B244009DBABE /* OnCall */ = {
 			isa = PBXGroup;
 			children = (
+				5ADDD95719B90E4F00C3C216 /* RAVerificationViewController.h */,
+				5ADDD95819B90E4F00C3C216 /* RAVerificationViewController.m */,
 				5AB3F07C1996B244009DBABE /* AppDelegate.h */,
 				5AB3F07D1996B244009DBABE /* AppDelegate.m */,
 				5A2E91E91996BAE60076CA78 /* Storyboard.storyboard */,
@@ -384,6 +389,7 @@
 				4AF3D1E519B850C6002A81C5 /* OCTabBarControllerDelegate.m in Sources */,
 				5A2E91F31996C1F70076CA78 /* SignUpViewController.m in Sources */,
 				4ACE9FAB19A47842003B6F59 /* MainViewController.m in Sources */,
+				5ADDD95919B90E4F00C3C216 /* RAVerificationViewController.m in Sources */,
 				5A2E91EE1996C1590076CA78 /* LogInViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
