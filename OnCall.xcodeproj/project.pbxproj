@@ -33,6 +33,7 @@
 		5AB3F0911996B244009DBABE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AB3F08F1996B244009DBABE /* InfoPlist.strings */; };
 		5AB3F0931996B244009DBABE /* OnCallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB3F0921996B244009DBABE /* OnCallTests.m */; };
 		5ADDD95919B90E4F00C3C216 /* RAVerificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADDD95819B90E4F00C3C216 /* RAVerificationViewController.m */; };
+		5ADDD95C19B922BD00C3C216 /* forgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADDD95B19B922BD00C3C216 /* forgotPasswordViewController.m */; };
 		7F3BAC364D114E54BAE60603 /* libPods-OnCall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB91D5152FB7493C92970C61 /* libPods-OnCall.a */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,8 @@
 		5AB3F0921996B244009DBABE /* OnCallTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnCallTests.m; sourceTree = "<group>"; };
 		5ADDD95719B90E4F00C3C216 /* RAVerificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RAVerificationViewController.h; path = ../RAVerificationViewController.h; sourceTree = "<group>"; };
 		5ADDD95819B90E4F00C3C216 /* RAVerificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RAVerificationViewController.m; path = ../RAVerificationViewController.m; sourceTree = "<group>"; };
+		5ADDD95A19B922BD00C3C216 /* forgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = forgotPasswordViewController.h; sourceTree = "<group>"; };
+		5ADDD95B19B922BD00C3C216 /* forgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = forgotPasswordViewController.m; sourceTree = "<group>"; };
 		DB91D5152FB7493C92970C61 /* libPods-OnCall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OnCall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F82AFE850FCE4B15ADEB8021 /* Pods-OnCall.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnCall.xcconfig"; path = "Pods/Pods-OnCall.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,6 +183,8 @@
 				5A2E91E91996BAE60076CA78 /* Storyboard.storyboard */,
 				5A2E91EB1996C1590076CA78 /* LogInViewController.h */,
 				5A2E91EC1996C1590076CA78 /* LogInViewController.m */,
+				5ADDD95A19B922BD00C3C216 /* forgotPasswordViewController.h */,
+				5ADDD95B19B922BD00C3C216 /* forgotPasswordViewController.m */,
 				5A2E91ED1996C1590076CA78 /* LogInViewController.xib */,
 				5A2E91F01996C1F70076CA78 /* SignUpViewController.h */,
 				5A2E91F11996C1F70076CA78 /* SignUpViewController.m */,
@@ -382,6 +387,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ADDD95C19B922BD00C3C216 /* forgotPasswordViewController.m in Sources */,
 				5AB3F07E1996B244009DBABE /* AppDelegate.m in Sources */,
 				4ACE9FB419A5AB1E003B6F59 /* ShiftPickerViewController.m in Sources */,
 				5AB3F07A1996B244009DBABE /* main.m in Sources */,
