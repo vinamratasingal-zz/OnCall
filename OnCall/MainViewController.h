@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MainViewController : UIViewController
+- (IBAction)messageRAButton:(id)sender;
+- (IBAction)callRAButton:(id)sender;
 
 @end

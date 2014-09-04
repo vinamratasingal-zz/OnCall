@@ -62,10 +62,13 @@
     //validate valid range
     
     //add event to parse
+    PFUser *currentUser = [PFUser currentUser];
     PFObject *newShift = [PFObject objectWithClassName:@"Shift"];
     newShift[@"startDate"] = startDate.date;
     newShift[@"endDate"] = endDate.date;
-    newShift[@"name"] = @"test"; //TODO: add user's name
+    newShift[@"name"] = currentUser[@"Name"];
+    newShift[@"phone_number"] = currentUser[@"phone_number"];
+    newShift[@"dorm"] = currentUser[@"dorm"];
     [newShift saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if(succeeded) {
             UITabBarController* tabBar = (UITabBarController*) self.view.window.rootViewController;

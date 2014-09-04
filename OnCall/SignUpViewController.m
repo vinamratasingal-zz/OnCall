@@ -12,14 +12,16 @@
 
 @interface SignUpViewController () {
     NSArray *_pickerData;
+    NSArray *_dormData;
 }
-@property (weak, nonatomic) IBOutlet UITextField *usernameField;
+@property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *emailOneField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordOneField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTwoField;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumberField;
 @property (weak, nonatomic) IBOutlet UIPickerView *rolePickerChoice;
+@property (weak, nonatomic) IBOutlet UIPickerView *dormPickerChoice;
 
 @end
 
@@ -29,7 +31,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -45,10 +46,15 @@
     UITapGestureRecognizer* tapBackground = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
     [tapBackground setNumberOfTapsRequired:1];
     [self.view addGestureRecognizer:tapBackground];
-    //Make and connect data
+    self.rolePickerChoice.tag = 1;
+    self.dormPickerChoice.tag = 2;
     _pickerData = @[@"RA", @"Resident"];
+    _dormData = @[@"Crothers", @"Junipero", @"Paloma"];
     self.rolePickerChoice.dataSource = self;
     self.rolePickerChoice.delegate = self;
+    self.dormPickerChoice.delegate = self;
+    self.dormPickerChoice.dataSource = self;
+
 }
 
 -(void) dismissKeyboard:(id)sender
@@ -66,7 +72,7 @@
 
 - (IBAction)registrationConfirmation:(id)sender {
     //make sure all fields are non-empty
-    if(_usernameField.text.length == 0 || _emailOneField.text.length == 0 || _passwordOneField.text.length == 0 || _passwordTwoField.text.length == 0) {
+    if(_nameField.text.length == 0 || _emailOneField.text.length == 0 || _passwordOneField.text.length == 0 || _passwordTwoField.text.length == 0) {
         UIAlertView *someEmptyFieldError = [[UIAlertView alloc] initWithTitle:@"Couldn't sign up" message:@"Please make sure all the fields were supplied" delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
         [someEmptyFieldError show];
         return; 
@@ -86,22 +92,26 @@
     }
     //entry is validated, so let's go ahead and load it in our DB
     PFUser *user = [PFUser user];
-    user.username = _usernameField.text;
+    user[@"Name"] = _nameField.text;
     user.password = _passwordTwoField.text;
     user.email = email;
+    user.username = email;
     user[@"phone_number"] = _phoneNumberField.text;
-    NSInteger row = [_rolePickerChoice selectedRowInComponent:0];
-    NSString *choice = [self pickerView: _rolePickerChoice titleForRow:row forComponent:1];
-    user[@"role"] = choice;
-        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    NSInteger roleRow = [_rolePickerChoice selectedRowInComponent:0];
+    NSString *roleChoice = [self pickerView: _rolePickerChoice titleForRow:roleRow forComponent:1];
+    user[@"role"] = roleChoice;
+    NSInteger dormRow = [_dormPickerChoice selectedRowInComponent:0];
+    NSString *dormChoice = [self pickerView: _dormPickerChoice titleForRow:dormRow forComponent:1];
+    user[@"dorm"] = dormChoice;
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             UIAlertView *savedInfo = [[UIAlertView alloc] initWithTitle:@"Please authenticate your email" message:@"Authenticate your email and login" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [savedInfo show];
-            
         } else {
             NSString *errorString = [error userInfo][@"error"];
             UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Something went wrong..." message:errorString delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
             [errorAlert show];
+            return; 
         }
     }];
 }
@@ -121,11 +131,19 @@
 // The number of rows of data
 - (int)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return _pickerData.count;
+    if(pickerView.tag == 1) {
+        return _pickerData.count;
+    } else {
+        return _dormData.count;
+    }
 }
 
 // The data to return for the row and component (column) that's being passed in
 -(NSString *) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    return [_pickerData objectAtIndex:row];
+    if(pickerView.tag == 1) {
+        return [_pickerData objectAtIndex:row];
+    } else {
+        return [_dormData objectAtIndex:row];
+    }
 }
 @end
