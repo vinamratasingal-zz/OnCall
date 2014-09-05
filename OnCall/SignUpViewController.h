@@ -10,6 +10,7 @@
 #import "RAVerificationViewController.h"
 
 @interface SignUpViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate, RAVerificationViewControllerDelegate, UIAlertViewDelegate>
+- (IBAction)cancelButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *phoneField;
 - (IBAction)registrationConfirmation:(id)sender;
 - (IBAction)unwindFromRAVerification:(UIStoryboardSegue *)segue;
