@@ -72,6 +72,7 @@
             if([objects count] == 0) {
                 self.raOnCall.text = @"None";
                 self.phoneOfOnCallRA.text = @"N/A";
+                raOnCallPhone = @"N/A"; 
             } else {
                 for(PFObject *object in objects) {
                     NSString *onCallRAName = [object objectForKey:@"name"];
@@ -92,18 +93,23 @@
 
 - (IBAction)callOnCallRA:(id)sender {
     NSString *phoneNumber = [@"telprompt://" stringByAppendingString:raOnCallPhone];
-    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:phoneNumber]]) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
-    } else {
+    if ([raOnCallPhone isEqualToString:@"N/A"]) {
         UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Uh oh" message:@"Couldn't place that call" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [error show];
+    } else {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
     }
 }
 
 - (IBAction)textOnCallRa:(id)sender {
     NSString *stringURL = [@"sms:" stringByAppendingString:raOnCallPhone];
     NSURL *url = [NSURL URLWithString:stringURL];
-    [[UIApplication sharedApplication] openURL:url];
+    if([raOnCallPhone isEqualToString:@"N/A"]) {
+        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Uh oh" message:@"Couldn't send a text to that number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [error show];
+    } else {
+        [[UIApplication sharedApplication] openURL:url];
+    }
 }
 
 // The number of columns of data
