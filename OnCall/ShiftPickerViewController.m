@@ -78,7 +78,6 @@
     
     NSDate * currStartDate = startDate.date;
     NSDate *currEndDate = endDate.date;
-    numRecurrences++; 
     NSMutableArray *shifts = [NSMutableArray arrayWithCapacity:numRecurrences];
     for(int i = 0; i < numRecurrences; i++)
     {
@@ -109,17 +108,12 @@
                     onlyOne = false;
                 }
             }
-            
-            
-            
         }
         else
         {
             @throw error;
         }
-        
     }];
-    
 }
 
 -(IBAction)submitAction:(id)sender {

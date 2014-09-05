@@ -50,9 +50,9 @@
     [text appendString:startDateString];
     [text appendString:@" - "];
     [text appendString:endDateString];
-    
+    cell.textLabel.numberOfLines = 0; // unlimited number of lines
+    //[[cell textLabel] setLineBreakMode:NSLineBreakByWordWrapping];
     cell.textLabel.text = text;
-    
     return cell;
 }
 
@@ -145,6 +145,7 @@
     [queryEnd whereKey:@"startDate" lessThanOrEqualTo:toDate];
     [queryEnd whereKey:@"dorm" equalTo:currUser[@"dorm"]];
     PFQuery *query = [PFQuery orQueryWithSubqueries:@[queryStart, queryEnd]];
+    [query orderByAscending:@"startDate"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *shiftList, NSError *error) {
         if (!error) {
             markedDays = [NSMutableArray arrayWithCapacity:[shiftList count]];
@@ -152,7 +153,6 @@
             NSLog(@"Successfully retrieved %d dates.", shiftList.count);
             // Do something with the found objects
             eventsInMonth = [[NSMutableDictionary alloc] init];
-            
             
             for (PFObject *shift in shiftList) {
                 NSLog(@"%@", shift.objectId);
