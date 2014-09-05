@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PickRecurringViewController.h"
 
-@interface ShiftPickerViewController : UIViewController
+@interface ShiftPickerViewController : UIViewController <PickRecurringViewControllerDelegate>
 
 @property (nonatomic, retain) IBOutlet UIDatePicker* startDate;
 @property (nonatomic, retain) IBOutlet UIDatePicker* endDate;
