@@ -248,7 +248,9 @@ NSString *const KalDataSourceChangedNotification = @"KalDataSourceChangedNotific
     tableView = nil;
 }
 
-
+-(void) refreshView {
+    [self reloadData]; 
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {

@@ -7,6 +7,7 @@
 #import "KalGridView.h"
 #import "KalLogic.h"
 #import "KalPrivate.h"
+#import "KalViewController.h"
 
 @interface KalView ()
 
@@ -32,6 +33,13 @@ static const CGFloat kMonthLabelHeight = 17.f;
         self.backgroundColor = RGBCOLOR(246, 246, 246);
         
         UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0.f, 0.f, frame.size.width, kHeaderHeight)];
+        UIButton * btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        btn.frame = CGRectMake(237, -17, 100, 50);
+        [btn setTitle:@"Refresh" forState:UIControlStateNormal];
+        [btn addTarget:self
+                   action:@selector(refreshView)
+         forControlEvents:UIControlEventTouchUpInside];
+        [headerView addSubview:btn];
         [self addSubviewsToHeaderView:headerView];
         [self addSubview:headerView];
         
@@ -42,6 +50,11 @@ static const CGFloat kMonthLabelHeight = 17.f;
     }
     
     return self;
+}
+
+-(void) refreshView {
+    KalViewController* calendar;
+    [calendar reloadData];
 }
 
 - (id)initWithFrame:(CGRect)frame
