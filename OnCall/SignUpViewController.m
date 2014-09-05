@@ -14,6 +14,7 @@
 @interface SignUpViewController () {
     NSArray *_pickerData;
     NSArray *_dormData;
+    BOOL isTapped;
 }
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *emailOneField;
@@ -33,6 +34,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
     }
+    _phoneNumberField.keyboardType = UIKeyboardTypeNamePhonePad;
     return self;
 }
 
@@ -43,7 +45,6 @@
     _passwordOneField.secureTextEntry = YES;
     _passwordTwoField.secureTextEntry = YES;
     self.scrollView.contentSize = CGSizeMake(0, 701);
-    _phoneNumberField.keyboardType = UIKeyboardTypeNamePhonePad;
     UITapGestureRecognizer* tapBackground = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
     [tapBackground setNumberOfTapsRequired:1];
     [self.view addGestureRecognizer:tapBackground];
@@ -55,6 +56,7 @@
     self.rolePickerChoice.delegate = self;
     self.dormPickerChoice.delegate = self;
     self.dormPickerChoice.dataSource = self;
+    isTapped = true;
 
 }
 
@@ -96,7 +98,7 @@
         return FALSE;
     }
     //correct digits for phone number
-    if(_phoneNumberField.text.length != 10) {
+    if(_phoneNumberField.text.length != 10 || ![self isNumeric:self.phoneNumberField.text]) {
         return FALSE;
     }
     return TRUE;
@@ -122,8 +124,8 @@
         return FALSE;
     }
     //correct digits for phone number
-    if(_phoneNumberField.text.length != 10) {
-        UIAlertView *wrongPhoneLength = [[UIAlertView alloc] initWithTitle:@"Phone Number Invalid" message:@"Please make sure you enter 10 digits for the phone number" delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
+    if(_phoneNumberField.text.length != 10 || ![self isNumeric:self.phoneNumberField.text]) {
+        UIAlertView *wrongPhoneLength = [[UIAlertView alloc] initWithTitle:@"Phone Number Invalid" message:@"Please make sure the phone number is valid" delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
         [wrongPhoneLength show];
         return FALSE;
     }
@@ -131,38 +133,42 @@
 }
 
 - (IBAction)registrationConfirmation:(id)sender {
-    if([self validateData]) {
-        PFUser* user = [PFUser user];
-        NSInteger roleRow = [_rolePickerChoice selectedRowInComponent:0];
-        NSString *role = [self pickerView: _rolePickerChoice titleForRow:roleRow forComponent:1];
-        user[@"role"] = role;
-        NSString *email = _emailOneField.text;
-        user[@"Name"] = _nameField.text;
-        user.password = _passwordTwoField.text;
-        user.email = email;
-        user.username = email;
-        user[@"phone_number"] = _phoneNumberField.text;
-        NSInteger dormRow = [_dormPickerChoice selectedRowInComponent:0];
-        NSString *dormChoice = [self pickerView: _dormPickerChoice titleForRow:dormRow forComponent:1];
-        user[@"dorm"] = dormChoice;
-        if([role isEqualToString: @"Resident"]) {
-            //entry is validated, so let's go ahead and load it in our DB
-            [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if (!error) {
-                    UIAlertView *savedInfo = [[UIAlertView alloc] initWithTitle:@"Please authenticate your email" message:@"Authenticate your email and login" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                    [savedInfo show];
-                    [self performSegueWithIdentifier:@"successfulRegisterSegue" sender:self];
-                } else {
-                    NSString *errorString = [error userInfo][@"error"];
-                    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Something went wrong..." message:errorString delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
-                    [errorAlert show];
-                    return;
-                }
-            }];
-        } else {
-            //RA, so let's validate dis ish
-            [self performSegueWithIdentifier:@"signUpToRAVerification" sender:self];
+    if(isTapped) {
+        isTapped = false;
+        if([self validateData]) {
+            PFUser* user = [PFUser user];
+            NSInteger roleRow = [_rolePickerChoice selectedRowInComponent:0];
+            NSString *role = [self pickerView: _rolePickerChoice titleForRow:roleRow forComponent:1];
+            user[@"role"] = role;
+            NSString *email = _emailOneField.text;
+            user[@"Name"] = _nameField.text;
+            user.password = _passwordTwoField.text;
+            user.email = email;
+            user.username = email;
+            user[@"phone_number"] = _phoneNumberField.text;
+            NSInteger dormRow = [_dormPickerChoice selectedRowInComponent:0];
+            NSString *dormChoice = [self pickerView: _dormPickerChoice titleForRow:dormRow forComponent:1];
+            user[@"dorm"] = dormChoice;
+            if([role isEqualToString: @"Resident"]) {
+                //entry is validated, so let's go ahead and load it in our DB
+                [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if (!error) {
+                        UIAlertView *savedInfo = [[UIAlertView alloc] initWithTitle:@"Please authenticate your email" message:@"Authenticate your email and login" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                        [savedInfo show];
+                        [self performSegueWithIdentifier:@"successfulRegisterSegue" sender:self];
+                    } else {
+                        NSString *errorString = [error userInfo][@"error"];
+                        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Something went wrong..." message:errorString delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
+                        [errorAlert show];
+                        return;
+                    }
+                }];
+            } else {
+                //RA, so let's validate dis ish
+                [self performSegueWithIdentifier:@"signUpToRAVerification" sender:self];
+            }
         }
+
     }
 }
 
@@ -195,6 +201,14 @@
     } else {
         return [_dormData objectAtIndex:row];
     }
+}
+
+- (BOOL)isNumeric:(NSString*)inputString{
+    BOOL isValid=NO;
+    NSCharacterSet *alphaNumbersSet = [NSCharacterSet decimalDigitCharacterSet];
+    NSCharacterSet *stringSet = [NSCharacterSet characterSetWithCharactersInString:inputString];
+    isValid = [alphaNumbersSet isSupersetOfSet:stringSet];
+    return isValid;
 }
 
 - (IBAction)unwindFromRAVerification:(UIStoryboardSegue *)segue {
