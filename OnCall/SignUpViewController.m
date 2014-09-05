@@ -16,8 +16,8 @@
     NSArray *_dormData;
 
     BOOL shouldDismiss;
-
     BOOL isTapped;
+    BOOL backToLogin;
 
 }
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
@@ -62,7 +62,7 @@
     self.dormPickerChoice.dataSource = self;
 
     shouldDismiss = NO;
-
+    backToLogin = NO;
     isTapped = true;
 
 
@@ -142,7 +142,6 @@
             NSInteger roleRow = [_rolePickerChoice selectedRowInComponent:0];
             NSString *role = [self pickerView: _rolePickerChoice titleForRow:roleRow forComponent:1];
             if([role isEqualToString: @"Resident"]) {
-                
                 [self submitUserInformation];
             } else {
                 //RA, so let's validate dis ish
@@ -171,6 +170,7 @@
     //entry is validated, so let's go ahead and load it in our DB
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
+            backToLogin = YES;
             UIAlertView *savedInfo = [[UIAlertView alloc] initWithTitle:@"Please authenticate your email" message:@"Authenticate your email and login" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [savedInfo show];
             //[self performSegueWithIdentifier:@"successfulRegisterSegue" sender:self];
@@ -214,6 +214,7 @@
     }
 }
 
+//check if string is numeric
 - (BOOL)isNumeric:(NSString*)inputString{
     BOOL isValid=NO;
     NSCharacterSet *alphaNumbersSet = [NSCharacterSet decimalDigitCharacterSet];
@@ -242,6 +243,8 @@
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     //redirect back to login screen
-    [self dismissViewControllerAnimated:NO completion:nil];
+    if(backToLogin) {
+        [self dismissViewControllerAnimated:NO completion:nil];
+    }
 }
 @end
