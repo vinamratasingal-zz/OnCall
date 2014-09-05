@@ -51,7 +51,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xXh-fD-18w" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="qip-aa-AW5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-215" y="850"/>
+            <point key="canvasLocation" x="-267" y="1470"/>
         </scene>
         <!--Log In Controller-->
         <scene sceneID="GaJ-Mq-PgT">
@@ -125,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5zJ-O4-RC1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="162" y="376"/>
+            <point key="canvasLocation" x="-746" y="860"/>
         </scene>
         <!--Shift Picker View Controller - ShiftPicker-->
         <scene sceneID="mpo-Sh-DKv">
@@ -275,7 +275,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </state>
                                 <connections>
                                     <action selector="raVerificationSubmit:" destination="LyP-I1-evR" eventType="touchUpInside" id="x3A-Gm-mOh"/>
-                                    <segue destination="eZr-uK-fqi" kind="modal" identifier="successfulRACodeSubmit" id="tFY-JW-EUc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JoR-NK-rcL">
@@ -298,7 +297,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a8B-8p-g0v" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="mfU-D8-kVe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="803" y="1119"/>
+            <point key="canvasLocation" x="1043" y="1059"/>
         </scene>
         <!--Register Controller-->
         <scene sceneID="Ja8-bO-ULW">
@@ -438,13 +437,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="rolePickerChoice" destination="AwX-kR-5HS" id="rxC-OK-Ju9"/>
                         <outlet property="scrollView" destination="yjM-g5-45k" id="HXp-wV-cUk"/>
                         <segue destination="LyP-I1-evR" kind="modal" identifier="signUpToRAVerification" id="6Vi-ks-nL3"/>
-                        <segue destination="eZr-uK-fqi" kind="modal" identifier="successfulRegisterSegue" id="dwh-as-gMf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fBj-4N-2vz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="4hM-Yz-JvX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="801" y="456"/>
+            <point key="canvasLocation" x="529" y="298"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -452,7 +450,4 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="tFY-JW-EUc"/>
-    </inferredMetricsTieBreakers>
 </document>

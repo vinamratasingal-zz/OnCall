@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RAVerificationViewController.h"
 
-@interface SignUpViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
+@interface SignUpViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate, RAVerificationViewControllerDelegate, UIAlertViewDelegate>
 - (IBAction)registrationConfirmation:(id)sender;
 - (IBAction)unwindFromRAVerification:(UIStoryboardSegue *)segue;
 @end

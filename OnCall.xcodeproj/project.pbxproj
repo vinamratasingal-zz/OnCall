@@ -181,19 +181,19 @@
 		5AB3F0731996B244009DBABE /* OnCall */ = {
 			isa = PBXGroup;
 			children = (
-				5ADDD95719B90E4F00C3C216 /* RAVerificationViewController.h */,
-				5ADDD95819B90E4F00C3C216 /* RAVerificationViewController.m */,
 				5AB3F07C1996B244009DBABE /* AppDelegate.h */,
 				5AB3F07D1996B244009DBABE /* AppDelegate.m */,
 				5A2E91E91996BAE60076CA78 /* Storyboard.storyboard */,
 				5A2E91EB1996C1590076CA78 /* LogInViewController.h */,
 				5A2E91EC1996C1590076CA78 /* LogInViewController.m */,
-				5ADDD95A19B922BD00C3C216 /* forgotPasswordViewController.h */,
-				5ADDD95B19B922BD00C3C216 /* forgotPasswordViewController.m */,
 				5A2E91ED1996C1590076CA78 /* LogInViewController.xib */,
 				5A2E91F01996C1F70076CA78 /* SignUpViewController.h */,
 				5A2E91F11996C1F70076CA78 /* SignUpViewController.m */,
 				5A2E91F21996C1F70076CA78 /* SignUpViewController.xib */,
+				5ADDD95719B90E4F00C3C216 /* RAVerificationViewController.h */,
+				5ADDD95819B90E4F00C3C216 /* RAVerificationViewController.m */,
+				5ADDD95A19B922BD00C3C216 /* forgotPasswordViewController.h */,
+				5ADDD95B19B922BD00C3C216 /* forgotPasswordViewController.m */,
 				5AB3F07F1996B244009DBABE /* Images.xcassets */,
 				4ACE9F3D19A2A6E6003B6F59 /* MyKalDataSource.h */,
 				4ACE9F3E19A2A6E6003B6F59 /* MyKalDataSource.m */,

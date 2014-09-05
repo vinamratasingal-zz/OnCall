@@ -18,6 +18,7 @@
 @interface LogInViewController ()
 {
     id<KalDataSource> source;
+    
 }
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;

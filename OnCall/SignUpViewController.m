@@ -14,6 +14,7 @@
 @interface SignUpViewController () {
     NSArray *_pickerData;
     NSArray *_dormData;
+    BOOL shouldDismiss;
 }
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *emailOneField;
@@ -55,7 +56,13 @@
     self.rolePickerChoice.delegate = self;
     self.dormPickerChoice.delegate = self;
     self.dormPickerChoice.dataSource = self;
+    shouldDismiss = NO;
 
+}
+-(void) viewDidAppear:(BOOL)animated
+{
+    if(shouldDismiss)
+        [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 -(void) dismissKeyboard:(id)sender
@@ -67,17 +74,7 @@
     NSLog(@"prepareForSegue: %@", segue.identifier);
     if ([segue.identifier isEqualToString:@"signUpToRAVerification"]) {
         RAVerificationViewController *ravc = (RAVerificationViewController *)segue.destinationViewController;
-        NSInteger roleRow = [_rolePickerChoice selectedRowInComponent:0];
-        NSString *role = [self pickerView: _rolePickerChoice titleForRow:roleRow forComponent:1];
-        ravc.role = role;
-        NSString *email = _emailOneField.text;
-        ravc.name = _nameField.text;
-        ravc.password = _passwordTwoField.text;
-        ravc.email = email;
-        ravc.phoneNumber = _phoneNumberField.text;
-        NSInteger dormRow = [_dormPickerChoice selectedRowInComponent:0];
-        NSString *dorm = [self pickerView: _dormPickerChoice titleForRow:dormRow forComponent:1];
-        ravc.dormChoice= dorm;
+        ravc.delegate = self;
     }
 }
 
@@ -132,38 +129,47 @@
 
 - (IBAction)registrationConfirmation:(id)sender {
     if([self validateData]) {
-        PFUser* user = [PFUser user];
         NSInteger roleRow = [_rolePickerChoice selectedRowInComponent:0];
         NSString *role = [self pickerView: _rolePickerChoice titleForRow:roleRow forComponent:1];
-        user[@"role"] = role;
-        NSString *email = _emailOneField.text;
-        user[@"Name"] = _nameField.text;
-        user.password = _passwordTwoField.text;
-        user.email = email;
-        user.username = email;
-        user[@"phone_number"] = _phoneNumberField.text;
-        NSInteger dormRow = [_dormPickerChoice selectedRowInComponent:0];
-        NSString *dormChoice = [self pickerView: _dormPickerChoice titleForRow:dormRow forComponent:1];
-        user[@"dorm"] = dormChoice;
         if([role isEqualToString: @"Resident"]) {
-            //entry is validated, so let's go ahead and load it in our DB
-            [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if (!error) {
-                    UIAlertView *savedInfo = [[UIAlertView alloc] initWithTitle:@"Please authenticate your email" message:@"Authenticate your email and login" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                    [savedInfo show];
-                    [self performSegueWithIdentifier:@"successfulRegisterSegue" sender:self];
-                } else {
-                    NSString *errorString = [error userInfo][@"error"];
-                    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Something went wrong..." message:errorString delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
-                    [errorAlert show];
-                    return;
-                }
-            }];
+            
+            [self submitUserInformation];
         } else {
             //RA, so let's validate dis ish
             [self performSegueWithIdentifier:@"signUpToRAVerification" sender:self];
+            //shouldDismiss = YES;
         }
     }
+}
+
+-(void) submitUserInformation
+{
+    PFUser* user = [PFUser user];
+    NSInteger roleRow = [_rolePickerChoice selectedRowInComponent:0];
+    NSString *role = [self pickerView: _rolePickerChoice titleForRow:roleRow forComponent:1];
+    user[@"role"] = role;
+    NSString *email = _emailOneField.text;
+    user[@"Name"] = _nameField.text;
+    user.password = _passwordTwoField.text;
+    user.email = email;
+    user.username = email;
+    user[@"phone_number"] = _phoneNumberField.text;
+    NSInteger dormRow = [_dormPickerChoice selectedRowInComponent:0];
+    NSString *dormChoice = [self pickerView: _dormPickerChoice titleForRow:dormRow forComponent:1];
+    user[@"dorm"] = dormChoice;
+    //entry is validated, so let's go ahead and load it in our DB
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            UIAlertView *savedInfo = [[UIAlertView alloc] initWithTitle:@"Please authenticate your email" message:@"Authenticate your email and login" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [savedInfo show];
+            //[self performSegueWithIdentifier:@"successfulRegisterSegue" sender:self];
+        } else {
+            NSString *errorString = [error userInfo][@"error"];
+            UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Something went wrong..." message:errorString delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
+            [errorAlert show];
+            return;
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -199,5 +205,24 @@
 
 - (IBAction)unwindFromRAVerification:(UIStoryboardSegue *)segue {
     
+}
+
+#pragma ravc delegate methods
+
+-(void) didVerifyRA:(BOOL) didVerify
+{
+    if(didVerify)
+    {
+        [self submitUserInformation];
+    }
+    
+}
+
+#pragma alertviewdelegate methods
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    //redirect back to login screen
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 @end

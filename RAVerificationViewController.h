@@ -8,13 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RAVerificationViewController : UIViewController
+@protocol RAVerificationViewControllerDelegate <NSObject>
+
+-(void) didVerifyRA:(BOOL) didVerify; //to inform signup whether verification was successful
+
+@end
+
+@interface RAVerificationViewController : UIViewController <UIAlertViewDelegate>
+
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *email;
 @property (nonatomic) NSString *password;
 @property (nonatomic) NSString *dormChoice;
 @property (nonatomic) NSString *role;
 @property (nonatomic) NSString *phoneNumber;
+@property (nonatomic) id<RAVerificationViewControllerDelegate> delegate;
+
 - (IBAction)raVerificationSubmit:(id)sender;
 
 @end
