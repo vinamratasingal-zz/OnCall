@@ -64,6 +64,10 @@
     }
 }
 
+- (IBAction)backButtonPressed:(id)sender {
+    [self dismissViewControllerAnimated:NO completion:nil];
+}
+
 //-(IBAction)backButtonPressed:(id)sender
 //{
 //    [self.delegate didVerifyRA:NO];

@@ -25,5 +25,6 @@
 @property (nonatomic) id<RAVerificationViewControllerDelegate> delegate;
 
 - (IBAction)raVerificationSubmit:(id)sender;
+- (IBAction)backButtonPressed:(id)sender;
 
 @end

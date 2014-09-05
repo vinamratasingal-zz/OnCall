@@ -81,6 +81,7 @@
 - (void)prepareForSegue:(UIStoryboardPopoverSegue *)segue sender:(id)sender {
     NSLog(@"prepareForSegue: %@", segue.identifier);
     if ([segue.identifier isEqualToString:@"signUpToRAVerification"]) {
+        isTapped = TRUE; //EDIT IF NECESSARY
         RAVerificationViewController *ravc = (RAVerificationViewController *)segue.destinationViewController;
         ravc.delegate = self;
     }
