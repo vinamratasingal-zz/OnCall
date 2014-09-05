@@ -166,7 +166,7 @@
 }
 -(void) setNumRecurrences:(int) numRecurrence
 {
-    numRecurrences = numRecurrence;
+    numRecurrences = numRecurrence + 1;
 }
 
 @end
