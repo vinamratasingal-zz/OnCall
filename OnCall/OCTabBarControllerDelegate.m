@@ -12,7 +12,7 @@
 #import "MainViewController.h"
 #import "MyKalDataSource.h"
 #import "NSDate+Convenience.h"
-
+#import "otherDormRAViewController.h"
 
 @interface OCTabBarControllerDelegate ()
 
@@ -37,9 +37,10 @@ static OCTabBarControllerDelegate *theTabBarDelegate;
 {
     MainViewController * mainView = [[MainViewController alloc ] initWithNibName:@"MainViewController" bundle:nil];
     
-    
+    otherDormRAViewController * otherDorms = [[otherDormRAViewController alloc] initWithNibName:@"otherDormRAViewController" bundle:nil];
     //PFUser *currUser = [PFUser currentUser];
     if(currUser == NULL) {
+        [PFUser logOut];
         NSLog(@"derp derp derp");
     }
     if([currUser[@"role"] isEqualToString:@"RA"]) {
@@ -52,9 +53,9 @@ static OCTabBarControllerDelegate *theTabBarDelegate;
         [calendar showAndSelectDate:[NSDate date]];
         UINavigationController* navController = [[UINavigationController alloc]
                                                  initWithRootViewController:calendar];
-        return [NSArray arrayWithObjects: mainView, navController, nil];
+        return [NSArray arrayWithObjects: mainView, otherDorms, navController, nil];
     } else {
-        return [NSArray arrayWithObjects: mainView, nil];
+        return [NSArray arrayWithObjects: mainView, otherDorms, nil];
     }
 }
 

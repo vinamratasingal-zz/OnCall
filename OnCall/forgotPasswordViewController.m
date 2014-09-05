@@ -56,7 +56,6 @@
 }
 */
 
-
 - (IBAction)recoverPassword:(id)sender {
     [PFUser requestPasswordResetForEmailInBackground:self.emailField.text];
     UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"Check your email" message:@"Please check your email to reset your password" delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];

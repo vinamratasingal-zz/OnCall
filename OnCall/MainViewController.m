@@ -62,14 +62,19 @@
     [query whereKey: @"dorm" equalTo:currDorm];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error) {
-            for(PFObject *object in objects) {
-                NSString *onCallRAName = [object objectForKey:@"name"];
-                NSString *onCallRAPhone = [object objectForKey:@"phone_number"];
-                NSLog(@"RA name is: %@", onCallRAName);
-                NSLog(@"RA phone is: %@",  onCallRAPhone);
-                raOnCallPhone = onCallRAPhone;
-                _raOnCallField.text = onCallRAName;
-                _phoneNumberRAField.text = onCallRAPhone;
+            if([objects count] == 0) {
+                self.raOnCallField.text = @"None";
+                self.phoneNumberRAField.text = @"N/A";
+            } else {
+                for(PFObject *object in objects) {
+                    NSString *onCallRAName = [object objectForKey:@"name"];
+                    NSString *onCallRAPhone = [object objectForKey:@"phone_number"];
+                    NSLog(@"RA name is: %@", onCallRAName);
+                    NSLog(@"RA phone is: %@",  onCallRAPhone);
+                    raOnCallPhone = onCallRAPhone;
+                    self.raOnCallField.text = onCallRAName;
+                    self.phoneNumberRAField.text = onCallRAPhone;
+                }
             }
         } else {
             NSLog(@"Error: %@", error);
