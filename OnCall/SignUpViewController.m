@@ -38,7 +38,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
     }
-    _phoneNumberField.keyboardType = UIKeyboardTypeNamePhonePad;
     return self;
 }
 
@@ -46,6 +45,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _phoneField.keyboardType = UIKeyboardTypeNumberPad;
     _passwordOneField.secureTextEntry = YES;
     _passwordTwoField.secureTextEntry = YES;
     self.scrollView.contentSize = CGSizeMake(0, 701);
@@ -136,55 +136,20 @@
 }
 
 - (IBAction)registrationConfirmation:(id)sender {
-
-    if([self validateData]) {
-        NSInteger roleRow = [_rolePickerChoice selectedRowInComponent:0];
-        NSString *role = [self pickerView: _rolePickerChoice titleForRow:roleRow forComponent:1];
-        if([role isEqualToString: @"Resident"]) {
-            
-            [self submitUserInformation];
-        } else {
-            //RA, so let's validate dis ish
-            [self performSegueWithIdentifier:@"signUpToRAVerification" sender:self];
-            //shouldDismiss = YES;
-
-//    if(isTapped) {
-//        isTapped = false;
-//        if([self validateData]) {
-//            PFUser* user = [PFUser user];
-//            NSInteger roleRow = [_rolePickerChoice selectedRowInComponent:0];
-//            NSString *role = [self pickerView: _rolePickerChoice titleForRow:roleRow forComponent:1];
-//            user[@"role"] = role;
-//            NSString *email = _emailOneField.text;
-//            user[@"Name"] = _nameField.text;
-//            user.password = _passwordTwoField.text;
-//            user.email = email;
-//            user.username = email;
-//            user[@"phone_number"] = _phoneNumberField.text;
-//            NSInteger dormRow = [_dormPickerChoice selectedRowInComponent:0];
-//            NSString *dormChoice = [self pickerView: _dormPickerChoice titleForRow:dormRow forComponent:1];
-//            user[@"dorm"] = dormChoice;
-//            if([role isEqualToString: @"Resident"]) {
-//                //entry is validated, so let's go ahead and load it in our DB
-//                [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//                    if (!error) {
-//                        UIAlertView *savedInfo = [[UIAlertView alloc] initWithTitle:@"Please authenticate your email" message:@"Authenticate your email and login" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//                        [savedInfo show];
-//                        [self performSegueWithIdentifier:@"successfulRegisterSegue" sender:self];
-//                    } else {
-//                        NSString *errorString = [error userInfo][@"error"];
-//                        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Something went wrong..." message:errorString delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
-//                        [errorAlert show];
-//                        return;
-//                    }
-//                }];
-//            } else {
-//                //RA, so let's validate dis ish
-//                [self performSegueWithIdentifier:@"signUpToRAVerification" sender:self];
-//            }
-//>>>>>>> 7ebce1c0a9024aa1921d7b2f9967a45f0a428a6a
+    if(isTapped) {
+        isTapped = false;
+        if([self validateData]) {
+            NSInteger roleRow = [_rolePickerChoice selectedRowInComponent:0];
+            NSString *role = [self pickerView: _rolePickerChoice titleForRow:roleRow forComponent:1];
+            if([role isEqualToString: @"Resident"]) {
+                
+                [self submitUserInformation];
+            } else {
+                //RA, so let's validate dis ish
+                [self performSegueWithIdentifier:@"signUpToRAVerification" sender:self];
+                //shouldDismiss = YES;
+            }
         }
-
     }
 }
 

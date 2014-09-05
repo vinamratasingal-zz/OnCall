@@ -495,6 +495,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="nameField" destination="ITS-D5-I7e" id="i7C-eg-eXP"/>
                         <outlet property="passwordOneField" destination="miA-8e-3xk" id="OT7-LL-4v1"/>
                         <outlet property="passwordTwoField" destination="xc0-zt-HM1" id="rie-bF-SVN"/>
+                        <outlet property="phoneField" destination="LlO-na-H3D" id="f9b-Jn-Yn6"/>
                         <outlet property="phoneNumberField" destination="LlO-na-H3D" id="pBc-My-cA9"/>
                         <outlet property="rolePickerChoice" destination="AwX-kR-5HS" id="rxC-OK-Ju9"/>
                         <outlet property="scrollView" destination="yjM-g5-45k" id="HXp-wV-cUk"/>
