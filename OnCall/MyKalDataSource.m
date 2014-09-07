@@ -155,7 +155,7 @@
             eventsInMonth = [[NSMutableDictionary alloc] init];
             
             for (PFObject *shift in shiftList) {
-                NSLog(@"%@", shift.objectId);
+                //NSLog(@"%@", shift.objectId);
                 NSArray *betweenDates = [self getDatesFromDate:shift[@"startDate"] toDate:shift[@"endDate"]];
                 
                 for(NSDate *date in betweenDates)

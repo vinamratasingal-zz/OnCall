@@ -204,11 +204,8 @@
 				4AF6F4E119B9991400D9EA7C /* LoginRelated */,
 				5AB3F07C1996B244009DBABE /* AppDelegate.h */,
 				5AB3F07D1996B244009DBABE /* AppDelegate.m */,
-				5A2E91E91996BAE60076CA78 /* Storyboard.storyboard */,
-				5AB3F07F1996B244009DBABE /* Images.xcassets */,
 				4ACE9F3D19A2A6E6003B6F59 /* MyKalDataSource.h */,
 				4ACE9F3E19A2A6E6003B6F59 /* MyKalDataSource.m */,
-				5AB3F0741996B244009DBABE /* Supporting Files */,
 				4ACE9FA819A47842003B6F59 /* MainViewController.h */,
 				4ACE9FA919A47842003B6F59 /* MainViewController.m */,
 				4ACE9FAA19A47842003B6F59 /* MainViewController.xib */,
@@ -222,6 +219,9 @@
 				5ADDD95F19B92A6D00C3C216 /* otherDormRAViewController.xib */,
 				4AF6F4E219B99A1300D9EA7C /* PickRecurringViewController.h */,
 				4AF6F4E319B99A1300D9EA7C /* PickRecurringViewController.m */,
+				5AB3F07F1996B244009DBABE /* Images.xcassets */,
+				5A2E91E91996BAE60076CA78 /* Storyboard.storyboard */,
+				5AB3F0741996B244009DBABE /* Supporting Files */,
 			);
 			path = OnCall;
 			sourceTree = "<group>";

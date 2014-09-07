@@ -73,6 +73,7 @@
 
 -(void) saveAllShifts
 {
+    NSLog(@"saveallshiftscalled");
     PFUser *currentUser = [PFUser currentUser];
     
     
@@ -94,15 +95,23 @@
     }
     [PFObject saveAllInBackground:shifts block:^(BOOL succeeded, NSError *error) {
         if(succeeded) {
-            UITabBarController* tabBar = (UITabBarController*) self.view.window.rootViewController;
+            //NSLog(@"block called");
+            
+            //as opposed to self.view.window.rootViewController
+            UITabBarController* tabBar = (UITabBarController*) [[UIApplication sharedApplication] keyWindow].rootViewController;
             
             //safeish way to do it. Hopefully no other views will be navcontrollers as well
+            //This is based on the assumption that we keep the viewcontroller hierarchy as-is.
             BOOL onlyOne = true;
+            //NSLog(@"Num viewcontrollers: %d", [tabBar.viewControllers count]);
             for(UIViewController *vc in tabBar.viewControllers)
             {
+                //NSLog(@"%s",[NSStringFromClass([vc class]) UTF8String]);
                 if([vc isKindOfClass:[UINavigationController class]])
                 {
-                    assert(onlyOne);
+                    
+                    //NSLog(@"checkpoint ");
+                    assert(onlyOne); //will fail if we have more than one vc in the tabbar that is a navigation controller
                     KalViewController* calendar = ((UINavigationController*)vc).viewControllers[0];
                     [calendar reloadData];
                     onlyOne = false;

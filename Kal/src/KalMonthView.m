@@ -107,13 +107,14 @@ extern const CGSize kTileSize;
 {
     if([dates count] > 0)
     {
-    NSLog(@"dates: %s", [[tileAccessibilityFormatter stringFromDate:dates[0]] UTF8String]);
+        NSLog(@"number of dates retrieved: %d", [dates count]);
+    //NSLog(@"dates: %s", [[tileAccessibilityFormatter stringFromDate:dates[0]] UTF8String]);
     }
     for (int i = 0; i < [self.subviews count]; i++)
     {
         KalTileView* tile = (KalTileView*)self.subviews[i];
         tile = (KalTileView*)tile;
-        NSLog(@"checking: %s" ,[[tileAccessibilityFormatter stringFromDate:tile.date] UTF8String]);
+        //NSLog(@"checking: %s" ,[[tileAccessibilityFormatter stringFromDate:tile.date] UTF8String]);
         if([dates containsObject:tile.date])
             [tile setType:KalTileTypeMarked];
         NSString *dayString = [tileAccessibilityFormatter stringFromDate:tile.date];
