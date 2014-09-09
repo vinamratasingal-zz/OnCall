@@ -45,6 +45,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.view setBackgroundColor:[UIColor clearColor]];
     _phoneField.keyboardType = UIKeyboardTypeNumberPad;
     _passwordOneField.secureTextEntry = YES;
     _passwordTwoField.secureTextEntry = YES;

@@ -31,6 +31,7 @@
 
 - (void)viewDidLoad
 {
+    [self.view setBackgroundColor:[UIColor clearColor]];
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     code = @"1234"; //TODO: CHANGE TO SOMETHING BETTER

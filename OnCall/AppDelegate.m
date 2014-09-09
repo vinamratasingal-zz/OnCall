@@ -30,7 +30,8 @@
     [Parse setApplicationId:@"8kVjXhqaOEAywzk6lwAJJZQpqPCKaMVglcncdIK0" clientKey:@"3jpGMZIAlOVoiEp8DflogqIRZ87pCAlHYlqOd4Vk"];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
+    [self.window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"../food.png"]]];
+   
     self.tabBarController = [[UITabBarController alloc] init];
     
     OCTabBarControllerDelegate * tabBarDelegate = [OCTabBarControllerDelegate instance];

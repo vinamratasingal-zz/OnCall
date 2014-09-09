@@ -38,6 +38,7 @@
 		5ADDD96019B92A6D00C3C216 /* otherDormRAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADDD95E19B92A6D00C3C216 /* otherDormRAViewController.m */; };
 		5ADDD96119B92A6D00C3C216 /* otherDormRAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ADDD95F19B92A6D00C3C216 /* otherDormRAViewController.xib */; };
 		7F3BAC364D114E54BAE60603 /* libPods-OnCall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB91D5152FB7493C92970C61 /* libPods-OnCall.a */; };
+		F4336B8219BEC0B100A4CA6F /* food.png in Resources */ = {isa = PBXBuildFile; fileRef = F4336B8119BEC0B100A4CA6F /* food.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		5ADDD95E19B92A6D00C3C216 /* otherDormRAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = otherDormRAViewController.m; sourceTree = "<group>"; };
 		5ADDD95F19B92A6D00C3C216 /* otherDormRAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = otherDormRAViewController.xib; sourceTree = "<group>"; };
 		DB91D5152FB7493C92970C61 /* libPods-OnCall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OnCall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4336B8119BEC0B100A4CA6F /* food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food.png; sourceTree = "<group>"; };
 		F82AFE850FCE4B15ADEB8021 /* Pods-OnCall.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnCall.xcconfig"; path = "Pods/Pods-OnCall.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -219,6 +221,7 @@
 				5ADDD95F19B92A6D00C3C216 /* otherDormRAViewController.xib */,
 				4AF6F4E219B99A1300D9EA7C /* PickRecurringViewController.h */,
 				4AF6F4E319B99A1300D9EA7C /* PickRecurringViewController.m */,
+				F4336B8119BEC0B100A4CA6F /* food.png */,
 				5AB3F07F1996B244009DBABE /* Images.xcassets */,
 				5A2E91E91996BAE60076CA78 /* Storyboard.storyboard */,
 				5AB3F0741996B244009DBABE /* Supporting Files */,
@@ -353,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A5E4481199FB453001E667B /* Kal.bundle in Resources */,
+				F4336B8219BEC0B100A4CA6F /* food.png in Resources */,
 				5ADDD96119B92A6D00C3C216 /* otherDormRAViewController.xib in Resources */,
 				4ACE9FB519A5AB1E003B6F59 /* ShiftPickerViewController.xib in Resources */,
 				5A2E91F41996C1F70076CA78 /* SignUpViewController.xib in Resources */,
