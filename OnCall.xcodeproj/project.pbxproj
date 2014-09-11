@@ -16,7 +16,6 @@
 		4ACE9FB519A5AB1E003B6F59 /* ShiftPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ACE9FB319A5AB1E003B6F59 /* ShiftPickerViewController.xib */; };
 		4AF3D1E519B850C6002A81C5 /* OCTabBarControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3D1E419B850C6002A81C5 /* OCTabBarControllerDelegate.m */; };
 		4AF6F4E419B99A1300D9EA7C /* PickRecurringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF6F4E319B99A1300D9EA7C /* PickRecurringViewController.m */; };
-		5A2E91EA1996BAE60076CA78 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A2E91E91996BAE60076CA78 /* Storyboard.storyboard */; };
 		5A2E91EE1996C1590076CA78 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E91EC1996C1590076CA78 /* LogInViewController.m */; };
 		5A2E91EF1996C1590076CA78 /* LogInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A2E91ED1996C1590076CA78 /* LogInViewController.xib */; };
 		5A2E91F31996C1F70076CA78 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E91F11996C1F70076CA78 /* SignUpViewController.m */; };
@@ -39,6 +38,7 @@
 		5ADDD96119B92A6D00C3C216 /* otherDormRAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ADDD95F19B92A6D00C3C216 /* otherDormRAViewController.xib */; };
 		7F3BAC364D114E54BAE60603 /* libPods-OnCall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB91D5152FB7493C92970C61 /* libPods-OnCall.a */; };
 		F4336B8219BEC0B100A4CA6F /* food.png in Resources */ = {isa = PBXBuildFile; fileRef = F4336B8119BEC0B100A4CA6F /* food.png */; };
+		F4336B8419C11BB000A4CA6F /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4336B8619C11BB000A4CA6F /* Storyboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +80,6 @@
 		4AF3D1E419B850C6002A81C5 /* OCTabBarControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTabBarControllerDelegate.m; sourceTree = "<group>"; };
 		4AF6F4E219B99A1300D9EA7C /* PickRecurringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickRecurringViewController.h; sourceTree = "<group>"; };
 		4AF6F4E319B99A1300D9EA7C /* PickRecurringViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickRecurringViewController.m; sourceTree = "<group>"; };
-		5A2E91E91996BAE60076CA78 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		5A2E91EB1996C1590076CA78 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		5A2E91EC1996C1590076CA78 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
 		5A2E91ED1996C1590076CA78 /* LogInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogInViewController.xib; sourceTree = "<group>"; };
@@ -112,6 +111,7 @@
 		5ADDD95F19B92A6D00C3C216 /* otherDormRAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = otherDormRAViewController.xib; sourceTree = "<group>"; };
 		DB91D5152FB7493C92970C61 /* libPods-OnCall.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OnCall.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4336B8119BEC0B100A4CA6F /* food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food.png; sourceTree = "<group>"; };
+		F4336B8519C11BB000A4CA6F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Storyboard.storyboard; sourceTree = "<group>"; };
 		F82AFE850FCE4B15ADEB8021 /* Pods-OnCall.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnCall.xcconfig"; path = "Pods/Pods-OnCall.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -223,7 +223,7 @@
 				4AF6F4E319B99A1300D9EA7C /* PickRecurringViewController.m */,
 				F4336B8119BEC0B100A4CA6F /* food.png */,
 				5AB3F07F1996B244009DBABE /* Images.xcassets */,
-				5A2E91E91996BAE60076CA78 /* Storyboard.storyboard */,
+				F4336B8619C11BB000A4CA6F /* Storyboard.storyboard */,
 				5AB3F0741996B244009DBABE /* Supporting Files */,
 			);
 			path = OnCall;
@@ -364,7 +364,7 @@
 				5A2E91EF1996C1590076CA78 /* LogInViewController.xib in Resources */,
 				5AB3F0781996B244009DBABE /* InfoPlist.strings in Resources */,
 				5AB3F0801996B244009DBABE /* Images.xcassets in Resources */,
-				5A2E91EA1996BAE60076CA78 /* Storyboard.storyboard in Resources */,
+				F4336B8419C11BB000A4CA6F /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +469,14 @@
 				5AB3F0901996B244009DBABE /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F4336B8619C11BB000A4CA6F /* Storyboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4336B8519C11BB000A4CA6F /* en */,
+			);
+			name = Storyboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
