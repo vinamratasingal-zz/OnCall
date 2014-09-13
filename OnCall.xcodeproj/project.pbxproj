@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A2792F619C40BEB00483ECF /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2792F419C40BEB00483ECF /* SplashViewController.m */; };
+		4A2792F719C40BEB00483ECF /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A2792F519C40BEB00483ECF /* SplashViewController.xib */; };
+		4A2792F919C40CC300483ECF /* small_on_call2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2792F819C40CC300483ECF /* small_on_call2.png */; };
+		4A2792FB19C40D1900483ECF /* iOS Simulator Screen shot Sep 12, 2014, 10.26.02 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2792FA19C40D1900483ECF /* iOS Simulator Screen shot Sep 12, 2014, 10.26.02 PM.png */; };
 		4A5E447F199FB42A001E667B /* libKal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5E447C199FB32B001E667B /* libKal.a */; };
 		4A5E4481199FB453001E667B /* Kal.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4A5E4480199FB453001E667B /* Kal.bundle */; };
+		4A625AB719C40015002CE6D6 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 4A625AB619C40015002CE6D6 /* images */; };
 		4ACE9F3F19A2A6E6003B6F59 /* MyKalDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACE9F3E19A2A6E6003B6F59 /* MyKalDataSource.m */; };
 		4ACE9FAB19A47842003B6F59 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACE9FA919A47842003B6F59 /* MainViewController.m */; };
 		4ACE9FAC19A47842003B6F59 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ACE9FAA19A47842003B6F59 /* MainViewController.xib */; };
@@ -66,8 +71,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A2792F319C40BEB00483ECF /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
+		4A2792F419C40BEB00483ECF /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
+		4A2792F519C40BEB00483ECF /* SplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
+		4A2792F819C40CC300483ECF /* small_on_call2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = small_on_call2.png; path = images/small_on_call2.png; sourceTree = "<group>"; };
+		4A2792FA19C40D1900483ECF /* iOS Simulator Screen shot Sep 12, 2014, 10.26.02 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen shot Sep 12, 2014, 10.26.02 PM.png"; sourceTree = "<group>"; };
 		4A5E4477199FB32A001E667B /* Kal.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Kal.xcodeproj; path = Kal/src/Kal.xcodeproj; sourceTree = "<group>"; };
 		4A5E4480199FB453001E667B /* Kal.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Kal.bundle; path = Kal/src/Kal.bundle; sourceTree = "<group>"; };
+		4A625AB619C40015002CE6D6 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		4ACE9F3D19A2A6E6003B6F59 /* MyKalDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyKalDataSource.h; sourceTree = "<group>"; };
 		4ACE9F3E19A2A6E6003B6F59 /* MyKalDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyKalDataSource.m; sourceTree = "<group>"; };
 		4ACE9FA819A47842003B6F59 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -169,6 +180,9 @@
 		5AB3F0611996B244009DBABE = {
 			isa = PBXGroup;
 			children = (
+				4A2792FA19C40D1900483ECF /* iOS Simulator Screen shot Sep 12, 2014, 10.26.02 PM.png */,
+				4A2792F819C40CC300483ECF /* small_on_call2.png */,
+				4A625AB619C40015002CE6D6 /* images */,
 				4A5E4480199FB453001E667B /* Kal.bundle */,
 				4A5E4477199FB32A001E667B /* Kal.xcodeproj */,
 				5AB3F0731996B244009DBABE /* OnCall */,
@@ -225,6 +239,9 @@
 				5AB3F07F1996B244009DBABE /* Images.xcassets */,
 				F4336B8619C11BB000A4CA6F /* Storyboard.storyboard */,
 				5AB3F0741996B244009DBABE /* Supporting Files */,
+				4A2792F319C40BEB00483ECF /* SplashViewController.h */,
+				4A2792F419C40BEB00483ECF /* SplashViewController.m */,
+				4A2792F519C40BEB00483ECF /* SplashViewController.xib */,
 			);
 			path = OnCall;
 			sourceTree = "<group>";
@@ -355,12 +372,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A2792F919C40CC300483ECF /* small_on_call2.png in Resources */,
 				4A5E4481199FB453001E667B /* Kal.bundle in Resources */,
+				4A625AB719C40015002CE6D6 /* images in Resources */,
 				F4336B8219BEC0B100A4CA6F /* food.png in Resources */,
 				5ADDD96119B92A6D00C3C216 /* otherDormRAViewController.xib in Resources */,
 				4ACE9FB519A5AB1E003B6F59 /* ShiftPickerViewController.xib in Resources */,
 				5A2E91F41996C1F70076CA78 /* SignUpViewController.xib in Resources */,
+				4A2792FB19C40D1900483ECF /* iOS Simulator Screen shot Sep 12, 2014, 10.26.02 PM.png in Resources */,
 				4ACE9FAC19A47842003B6F59 /* MainViewController.xib in Resources */,
+				4A2792F719C40BEB00483ECF /* SplashViewController.xib in Resources */,
 				5A2E91EF1996C1590076CA78 /* LogInViewController.xib in Resources */,
 				5AB3F0781996B244009DBABE /* InfoPlist.strings in Resources */,
 				5AB3F0801996B244009DBABE /* Images.xcassets in Resources */,
@@ -419,6 +440,7 @@
 				5ADDD96019B92A6D00C3C216 /* otherDormRAViewController.m in Sources */,
 				5ADDD95C19B922BD00C3C216 /* forgotPasswordViewController.m in Sources */,
 				5AB3F07E1996B244009DBABE /* AppDelegate.m in Sources */,
+				4A2792F619C40BEB00483ECF /* SplashViewController.m in Sources */,
 				4ACE9FB419A5AB1E003B6F59 /* ShiftPickerViewController.m in Sources */,
 				5AB3F07A1996B244009DBABE /* main.m in Sources */,
 				4ACE9F3F19A2A6E6003B6F59 /* MyKalDataSource.m in Sources */,

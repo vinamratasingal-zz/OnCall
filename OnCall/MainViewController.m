@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import <Parse/Parse.h>
+#import "SplashViewController.h"
 
 @interface MainViewController () {
     NSString *raOnCallPhone;
@@ -39,23 +40,45 @@
     
 }
 
+-(void) showSplash
+{
+
+   // SplashViewController *vc = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
+
+   // [self presentViewController:vc animated:YES completion:NULL];
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    //prevent it from briefly being shown.
+    PFUser *currentUser = [PFUser currentUser];
+    if(currentUser == nil)
+    {
+        [self.view setHidden:YES];
+    }
+}
+
 -(void) viewDidAppear:(BOOL)animated
 {
+    
+    [self showSplash];
+    
     //check login
     NSDate *date = [NSDate date];
     PFUser *currentUser = [PFUser currentUser];
     if(currentUser == nil) {
         [PFUser logOut];
         [self showLogin];
+        return;
     }
+    
+    
     NSString* currDorm;
-    if(currentUser != NULL) {
-        currDorm = currentUser[@"dorm"];
-        if(currDorm == nil)
-            [PFUser logOut];
-    } else {
-        currDorm = @"Please login to see this";
-    }
+    
+    currDorm = currentUser[@"dorm"];
+    if(currDorm == nil)
+        [PFUser logOut];
+    
     _currentDorm.text = currDorm;
     PFQuery *query = [PFQuery queryWithClassName:@"Shift"];
     [query whereKey:@"startDate" lessThanOrEqualTo:date];
@@ -96,7 +119,7 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
     UIViewController *vc = [sb instantiateInitialViewController];
     vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:vc animated:YES completion:NULL];
+    [self presentViewController:vc animated:NO completion:NULL];
 }
 
 -(IBAction)onLogout:(id)sender

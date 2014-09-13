@@ -53,6 +53,7 @@
             </objects>
             <point key="canvasLocation" x="-267" y="1470"/>
         </scene>
+      
         <!--Log In Controller-->
         <scene sceneID="GaJ-Mq-PgT">
             <objects>
@@ -513,6 +514,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="529" y="298"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="small_on_call2.png" width="296" height="125"/>
+    </resources>
     <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
