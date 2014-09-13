@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface otherDormRAViewController : UIViewController
+@interface otherDormRAViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 - (IBAction)logout:(id)sender;
 - (IBAction)checkOtherDormInfo:(id)sender;
 - (IBAction)callOnCallRA:(id)sender;
